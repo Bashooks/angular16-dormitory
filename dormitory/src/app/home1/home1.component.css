@@ -1,0 +1,153 @@
+/* Reset margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header image and search bar positioning */
+.header {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.header-image,.footer-image {
+    width: 100%;
+    height: 90vh;
+    /* Adjust to cover the desired area */
+    object-fit: cover;
+    display: block;
+}
+
+.search-bar {
+    position: absolute;
+    top: 15vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    padding: 20px;
+}
+
+.head-web {
+    position: absolute;
+    display: flex;
+    left: 20px;
+    top: 20px;
+    /* จัดให้องค์ประกอบอยู่กึ่งกลางตามแนวตั้ง */
+}
+
+.head-web img {
+    margin-right: 10px;
+    height: 78px;
+    width: 78;
+    /* เว้นระยะห่างระหว่างรูปภาพกับ h1 */
+}
+
+.head-web h1.nameweb {
+    font-family: Inter;
+    font-size: 38px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 45.99px;
+    text-align: left;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.head-web h1.nameweb2 {
+    font-family: Inter;
+    font-size: 38px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 45.99px;
+    text-align: right;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    margin-left: 110px;
+    /* ขยับ nameweb2 ไปทางขวา 20px */
+}
+
+
+
+.search-bar h1 {
+    border-top: 1px solid #ffffff;
+    border-bottom: 1px solid #ffffff;
+    padding: 20px 0;
+    margin-bottom: 10px;
+    font-size: 2em;
+    color: white;
+}
+
+.input1{
+    width: 20%;
+    padding: 10px;
+    margin: 0;
+    height: 40px;
+    margin-right: 0px;
+    border-radius:5px 0px 0px 5px;
+    border: none;
+}
+.input2{
+    width: 20%;
+    padding: 10px;
+    margin: 0;
+    margin-right: 0px;
+    border: none;
+    height: 40px;
+}
+
+.input3{
+    width: 20%;
+    padding: 10px;
+    margin: 0;
+    margin-right: 0px;
+    border: none;
+    height: 40px;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    background-color: orange;
+    color: white;
+    cursor: pointer;
+}
+
+
+/* Content positioning */
+.content {
+    position: relative;
+    top: -50px;
+    /* Adjust to move content upwards and overlap header */
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Card container styling */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.card {
+    width: 200px;
+    height: 80vh;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    text-align: center;
+}
