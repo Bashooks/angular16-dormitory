@@ -5,6 +5,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Home1Component } from './home1/home1.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,7 @@ import { Home1Component } from './home1/home1.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

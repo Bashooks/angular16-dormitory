@@ -10,15 +10,19 @@
     position: relative;
     text-align: center;
     color: white;
+    z-index: 1;
 }
 
-.header-image,.footer-image {
+.header-image,
+.footer-image {
     width: 100%;
     height: 90vh;
-    /* Adjust to cover the desired area */
     object-fit: cover;
     display: block;
+    position: relative;
+    z-index: 0;
 }
+
 
 .search-bar {
     position: absolute;
@@ -27,7 +31,10 @@
     transform: translateX(-50%);
     width: 80%;
     padding: 20px;
+    z-index: 1;
 }
+
+
 
 .head-web {
     position: absolute;
@@ -41,25 +48,33 @@
     margin-right: 10px;
     height: 78px;
     width: 78;
+    z-index: 1;
     /* เว้นระยะห่างระหว่างรูปภาพกับ h1 */
 }
 
 .head-web h1.nameweb {
+    position: relative;
+    z-index: 1;
     font-family: Inter;
+    margin-left: 20px;
     font-size: 38px;
     font-style: italic;
     font-weight: 600;
     line-height: 45.99px;
     text-align: left;
+    z-index: 1;
     text-shadow:
         -1px -1px 0 #000,
         1px -1px 0 #000,
         -1px 1px 0 #000,
         1px 1px 0 #000;
+
 }
 
 .head-web h1.nameweb2 {
+    position: relative;
     font-family: Inter;
+    margin-left: 130px;
     font-size: 38px;
     font-style: italic;
     font-weight: 600;
@@ -70,8 +85,8 @@
         1px -1px 0 #000,
         -1px 1px 0 #000,
         1px 1px 0 #000;
-    margin-left: 110px;
-    /* ขยับ nameweb2 ไปทางขวา 20px */
+    z-index: 1;
+
 }
 
 
@@ -85,37 +100,77 @@
     color: white;
 }
 
-.input1{
-    width: 20%;
-    padding: 10px;
-    margin: 0;
-    height: 40px;
-    margin-right: 0px;
-    border-radius:5px 0px 0px 5px;
-    border: none;
-}
-.input2{
-    width: 20%;
-    padding: 10px;
-    margin: 0;
-    margin-right: 0px;
-    border: none;
-    height: 40px;
+.label-input {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 20%;
+    text-align: left;
+    font-family: Inter;
+    font-size: 11px;
+    font-style: italic;
+    font-weight: 600;
+    line-height: 45.99px;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+
 }
 
-.input3{
-    width: 20%;
+.btn-content {
+    display: flex;
+    align-items: center;
+}
+
+.button-content {
+    padding: 10px;
+}
+
+.button-content button {
+    width: 120%;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.button-content button.btn1 {
+    background-color: #1F496B;
+    border-color: #1F496B;
+}
+
+.button-content button.btn2 {
+    background-color: #85C1F040;
+
+    border-color: #85C1F040;
+}
+
+.input1 {
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+    height: 40px;
+    margin-right: 0px;
+    border-radius: 5px 0px 0px 5px;
+    border: none;
+    padding-left: 30px
+}
+
+
+.input3 {
+    width: 100%;
     padding: 10px;
     margin: 0;
     margin-right: 0px;
     border: none;
     height: 40px;
+    padding-left: 35px
 }
 
-.search-bar button {
-    padding: 10px 20px;
+.label-input button {
+    height: 40px;
+    width: 70px;
     font-size: 1em;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
     border: none;
     background-color: orange;
     color: white;
@@ -127,27 +182,112 @@
 .content {
     position: relative;
     top: -50px;
-    /* Adjust to move content upwards and overlap header */
-    background: white;
+
+    background: rgb(255, 255, 255);
     border-radius: 20px;
+    /* This applies the radius to all four corners */
     padding: 20px;
-    box-shadow: 0px -10px 20px rgba(0, 0, 0, 0.1);
+    z-index: 3;
+    margin-bottom: -100px;
+    /* Ensure padding and border are included in the element's width and height */
 }
+
 
 /* Card container styling */
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 equal columns */
+    gap: 20px;
+    /* Space between cards */
+    padding: 30px;
 }
 
 .card {
-    width: 200px;
-    height: 80vh;
-    margin: 10px;
-    padding: 10px;
+    background-color: white;
+    height: 600px;
+    /* Adjust the height as needed */
+
     border-radius: 10px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    background-color: white;
+    text-align: center;
+}
+
+.input-container {
+    position: relative;
+    display: inline-block;
+}
+
+.icon-image {
+    position: absolute;
+    left: 10px;
+    ;
+    /* Adjust the position as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    height: 20px;
+    /* Adjust the size as needed */
+    width: auto;
+}
+
+.head-content {
+    display: flex;
+    align-items: center;
+    /* Vertically align items */
+    position: relative;
+    /* To position the arrow */
+    padding-right: 20px;
+    /* Add padding if needed for spacing */
+}
+
+.head-content h1 {
+    margin: 0;
+    /* Remove default margin */
+    font-size: 2em;
+    /* Adjust font size as needed */
+}
+
+.head-content img {
+    height: 40px;
+    /* Adjust the height of the image as needed */
+    width: auto;
+    /* Maintain aspect ratio */
+}
+
+.head-content .arrow {
+    position: absolute;
+    right: 0;
+    /* Align to the right edge of the container */
+    margin: 0;
+    /* Remove default margin */
+    font-size: 2em;
+    /* Adjust font size as needed */
+}
+.footer {
+    position: relative; /* Set position relative for the footer container */
+}
+.footer-text-container {
+    position: absolute; /* Position the container absolutely within the footer */
+    bottom: 40%; /* Adjust vertical position from the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center text horizontally */
+    text-align: center; /* Center-align the text within the container */
+    color: white; /* Adjust text color for contrast */
+    z-index: 1; /* Ensure text appears above the image */
+}
+
+
+.footer-text {
+    margin: 0; /* Remove default margin */
+    font-size: 1.5em; /* Adjust font size */
+    /* Optional: Add a background color with transparency */
+    padding: 10px; /* Add padding around text */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+.footer-text-end{
+    background-color: #1E3544;
+    color: white;
+    font-size: 1em;
     text-align: center;
 }
