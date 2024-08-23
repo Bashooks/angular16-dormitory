@@ -15,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
 import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { SearchComponent } from './search/search.component';
+import { DormitoryComponent } from './dormitory/dormitory.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SearchComponent } from './search/search.component';
     Home1Component,
     RegisterDialogComponent,
     LoginDialogComponent,
-    SearchComponent
+    SearchComponent,
+    DormitoryComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,78 @@
+<div class="dormitory-list">
+    <nav class="nav">
+        <div class="nav-name">
+            <img [src]="logo" alt="logo" class="logo">
+            <div>
+                <h1 class="nameweb1">Dormitory</h1>
+                <h1 class="nameweb2">Web</h1>
+            </div>
+        </div>
+        <div class="nav-profile">
+            <img [src]="profile" alt="profile" class="profile">
+            <p style="padding-right: 5px;"></p>
+            <div class="dropdown">
+                <button class="dropbtn">V</button>
+                <div class="dropdown-content">
+                    <a href="#"><img [src]="dropdown1" alt="Settings Icon" class="dropdown-icon"> ตั้งค่า</a>
+                    <a href="#"><img [src]="dropdown2" alt="Send Document Icon" class="dropdown-icon"> ส่งเอกสาร</a>
+                    <a href="#"><img [src]="dropdown3" alt="Track Document Icon" class="dropdown-icon">
+                        ติดตามเอกสาร</a>
+                    <a href="#"><img [src]="dropdown4" alt="Logout Icon" class="dropdown-icon"> ออกจากระบบ</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="search-bar">
+        <input class="input1" type="text" placeholder="" />
+        <input class="input2" type="text" placeholder="" />
+        <input class="input3" type="date" placeholder="" />
+        <input class="input4" type="text" placeholder="" />
+        <button>Search</button>
+    </div>
+    <div class="btn-add-dormitory-and-logo">
+        <div class="head-menu">
+            <img [src]="logo" alt="logo" class="logo" style="padding-right:10px;">
+            <h3>ที่พักสำหรับคุณ</h3>
+        </div>
+        <div>
+            <button class="btn-add-dormitory">Search</button>
+        </div>
+    </div>
+    <div *ngFor="let dorm of dormitories" class="dormitory-card">
+        <div class="dormitory-image">
+            <img [src]="dorm.imageUrl" alt="Dormitory Image" />
+        </div>
+        <div class="dormitory-info">
+
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+
+                <h3>{{ dorm.name }}</h3>
+                <div class="vertical-divider"></div>
+                <button class="book-now-btn1">เลือกห้อง</button>
+
+            </div>
+            <div class="dormitory-meta">
+                <div class="rating">
+                    <span class="type">{{ dorm.type }}</span>
+                    <span *ngFor="let star of [1,2,3,4,5]" [ngClass]="{'filled': star <= dorm.rating}">&#9733;</span>
+                </div>
+                <p>THB {{ dorm.price | number:'1.2-2' }}</p>
+            </div>
+            <div class="location-price">
+                <p class="location">{{ dorm.location }}</p>
+                <div class="dormitory-price">
+                    <span>(ไม่รวมภาษีและค่าธรรมเนียม)</span><br>
+                    <button class="book-now-btn">เลือกห้อง</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="floating-help-button">
+        <button class="help-button">ต้องการความช่วยเหลือ?</button>
+    </div>
+    <div class="footer">
+        <div class="footer-content">
+            <p>Copyright © 2024 Dormitory. All rights reserved</p>
+        </div>
+    </div>
+</div>   
