@@ -14,13 +14,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { RegisterDialogComponent } from './register-dialog/register-dialog.component';
 import { LoginDialogComponent } from './login-dialog/login-dialog.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     Home1Component,
     RegisterDialogComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
