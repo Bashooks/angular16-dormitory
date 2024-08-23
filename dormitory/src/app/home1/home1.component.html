@@ -2,13 +2,18 @@
     <div class="head-web">
         <img src="{{logo}}" alt="logo" class="logo">
         <div class="nameweb-container">
-            <h1 class="nameweb">Dormitory</h1>
-            <h1 class="nameweb2">Web</h1>
+            <div class="nameweb-h">
+                <h1 class="nameweb">Dormitory</h1>
+                <h1 class="nameweb2">Web</h1>
+            </div>
+            <div class="btn-reg" >
+                <button class="btn-01" (click)="openLoginDialog()">เข้าสู่ระบบ</button>
+                <button class="btn-02" (click)="openRegisterDialog()">ลงทะเบียน</button>
+            </div>
+            
         </div>
     </div>
-
     <img src="{{header}}" alt="Header Image" class="header-image">
-
     <div class="search-bar">
         <h1>เราคัดสรรหอพักที่ดีเพื่อความสุขสบายของคุณ</h1>
         <div class="label-input">
@@ -33,11 +38,13 @@
                     <input class="input3" type="text" placeholder="ผู้เข้าพัก">
                     <img src="{{iconimg3}}" alt="Icon Image" class="icon-image">
                 </div>
-                <button>ค้นหา</button>
+                <button >ค้นหา</button>
             </div>
         </div>
-    </div>
 
+        <h2>Dormitory Web</h2>
+    </div>
+    
 </div>
 <div class="content">
     <div>

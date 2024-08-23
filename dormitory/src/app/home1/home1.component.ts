@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { RegisterDialogComponent } from '../register-dialog/register-dialog.component';
+import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
+
+
 
 @Component({
   selector: 'app-home1',
@@ -19,9 +24,23 @@ export class Home1Component {
 
   dateForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,
+    private dialog: MatDialog
+  ) {
     this.dateForm = this.fb.group({
       
+    });
+  }
+
+  openRegisterDialog() {
+    this.dialog.open(RegisterDialogComponent, {
+      width: '432px',
+    });
+  }
+
+  openLoginDialog() {
+    this.dialog.open(LoginDialogComponent, {
+      width: '432px',
     });
   }
 

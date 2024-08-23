@@ -35,14 +35,50 @@
 }
 
 
+.head-web .nameweb-container {
+    display: flex;
+    align-items: center;
+    width: 100%; /* ทำให้ใช้พื้นที่ทั้งบรรทัด */
+    position: relative;
+}  /* Use flexbox to arrange buttons */
 
-.head-web {
+.head-web .btn-reg {
     position: absolute;
     display: flex;
+    gap: 10px;
+    top: 0;
+    right: 0;
+    margin: 20px; /* เพิ่ม margin ตามต้องการเพื่อความสวยงาม */
+}
+.head-web button.btn-02 {
+    border-radius: 10px;
+    height: 40px;
+    background-color: #1F496B;
+    border: none;
+    color: white;
+   
+    padding: 5px 25px;
+}
+.head-web button.btn-01 {
+    border-radius: 10px;
+    height: 40px;
+    background-color: #ffffff00;
+    border-color: white;
+    color: white;
+   
+    padding: 5px 25px;
+}
+.head-web {
+    position: absolute; /* Ensure it is positioned relative to .header */
+    display: flex;
+    justify-content: space-between;
     left: 20px;
     top: 20px;
-    /* จัดให้องค์ประกอบอยู่กึ่งกลางตามแนวตั้ง */
+    width: calc(100% - 40px); /* Adjust for margin on both sides */
+    z-index: 2; /* Ensure it is above the header image */
 }
+
+
 
 .head-web img {
     margin-right: 10px;
@@ -97,6 +133,13 @@
     padding: 20px 0;
     margin-bottom: 10px;
     font-size: 2em;
+    color: white;
+}
+
+.search-bar h2 {
+    padding: 20px 0;
+    margin-top: 10%;
+    font-size: 1.5em;
     color: white;
 }
 
@@ -263,29 +306,43 @@
     font-size: 2em;
     /* Adjust font size as needed */
 }
+
 .footer {
-    position: relative; /* Set position relative for the footer container */
+    position: relative;
+    /* Set position relative for the footer container */
 }
+
 .footer-text-container {
-    position: absolute; /* Position the container absolutely within the footer */
-    bottom: 40%; /* Adjust vertical position from the bottom */
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Center text horizontally */
-    text-align: center; /* Center-align the text within the container */
-    color: white; /* Adjust text color for contrast */
-    z-index: 1; /* Ensure text appears above the image */
+    position: absolute;
+    /* Position the container absolutely within the footer */
+    bottom: 40%;
+    /* Adjust vertical position from the bottom */
+    left: 50%;
+    /* Center horizontally */
+    transform: translateX(-50%);
+    /* Center text horizontally */
+    text-align: center;
+    /* Center-align the text within the container */
+    color: white;
+    /* Adjust text color for contrast */
+    z-index: 1;
+    /* Ensure text appears above the image */
 }
 
 
 .footer-text {
-    margin: 0; /* Remove default margin */
-    font-size: 1.5em; /* Adjust font size */
+    margin: 0;
+    /* Remove default margin */
+    font-size: 1.5em;
+    /* Adjust font size */
     /* Optional: Add a background color with transparency */
-    padding: 10px; /* Add padding around text */
-    border-radius: 5px; /* Optional: Add rounded corners */
+    padding: 10px;
+    /* Add padding around text */
+    border-radius: 5px;
+    /* Optional: Add rounded corners */
 }
 
-.footer-text-end{
+.footer-text-end {
     background-color: #1E3544;
     color: white;
     font-size: 1em;
