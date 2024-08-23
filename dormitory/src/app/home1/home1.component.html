@@ -6,16 +6,24 @@
                 <h1 class="nameweb">Dormitory</h1>
                 <h1 class="nameweb2">Web</h1>
             </div>
-            <div class="btn-reg" >
+            <div class="btn-reg">
+                <p>ค้นหา</p>
                 <button class="btn-01" (click)="openLoginDialog()">เข้าสู่ระบบ</button>
                 <button class="btn-02" (click)="openRegisterDialog()">ลงทะเบียน</button>
             </div>
-            
+
         </div>
     </div>
     <img src="{{header}}" alt="Header Image" class="header-image">
     <div class="search-bar">
         <h1>เราคัดสรรหอพักที่ดีเพื่อความสุขสบายของคุณ</h1>
+        <div class="icon-input">
+            <button class="btn-03" (click)="GotoSearch()">
+                <img src="{{iconimg5}}" alt="Icon Image" class="icon-image1">
+                ค้นหาหอพัก
+            </button>
+        </div>
+
         <div class="label-input">
             <div class="label-on-input">
                 <label for="district">อำเภอ/จังหวัด</label><br>
@@ -27,7 +35,7 @@
             <div>
                 <label for="district">วันที่เข้าพัก</label><br>
                 <div class="input-container">
-                    <input class="input3" type="date" placeholder="">
+                    <input class="input3" type="text" placeholder="">
                     <img src="{{iconimg2}}" alt="Icon Image" class="icon-image">
                 </div>
 
@@ -38,13 +46,13 @@
                     <input class="input3" type="text" placeholder="ผู้เข้าพัก">
                     <img src="{{iconimg3}}" alt="Icon Image" class="icon-image">
                 </div>
-                <button >ค้นหา</button>
+                <button>ค้นหา</button>
             </div>
         </div>
 
         <h2>Dormitory Web</h2>
     </div>
-    
+
 </div>
 <div class="content">
     <div>

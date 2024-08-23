@@ -1,8 +1,25 @@
 <nav class="nav">
-    <img src="{{logo}}" alt="logo" class="logo">
-    <div>
-        <h1 class="nameweb1">Dormitory</h1>
-        <h1 class="nameweb2">Web</h1>
+
+    <div class="nav-name">
+        <img src="{{logo}}" alt="logo" class="logo">
+        <div>
+            <h1 class="nameweb1">Dormitory</h1>
+            <h1 class="nameweb2">Web</h1>
+        </div>
+    </div>
+    <div class="nav-profile">
+        <img src="{{profile}}" alt="profile" class="profile">
+        <p style="padding-right: 5px;">{{profilename}}</p>
+        <div class="dropdown">
+            <button class="dropbtn">V</button>
+            <div class="dropdown-content">
+                <a href="#"><img src="{{dropdown1}}" alt="Settings Icon" class="dropdown-icon"> ตั้งค่า</a>
+                <a href="#"><img src="{{dropdown2}}" alt="Send Document Icon" class="dropdown-icon"> ส่งเอกสาร</a>
+                <a href="#"><img src="{{dropdown3}}" alt="Track Document Icon" class="dropdown-icon"> ติดตามเอกสาร</a>
+                <a href="#"><img src="{{dropdown4}}" alt="Logout Icon" class="dropdown-icon"> ออกจากระบบ</a>
+            </div>
+        </div>
+        
     </div>
 </nav>
 
@@ -13,19 +30,26 @@
 <div class="container">
     <div class="search-bar">
         <label for="location">ชื่อเมือง สถานที่ หรือหอพัก</label><br>
-        <input class="location" type="text" placeholder="ชื่อเมือง สถานที่ หรือหอพัก">
+        <div class="input-container">
+            <img src="{{location}}" alt="Location Icon" class="input-icon">
+            <input class="location" style="padding-left: 50px;" type="text" placeholder="ชื่อเมือง สถานที่ หรือหอพัก">
+        </div>
     </div><br>
     <div class="line">
         <div class="search-bar1">
             <label for="dateopen">วันที่เข้าพัก</label><br>
-            <input class="dateopen" type="date">
+            <div class="input-container">
+                <img src="{{catogory}}" alt="Date Icon" class="input-icon">
+                <input  class="dateopen" type="date">
+            </div>
         </div>
         <div class="search-bar2">
-            <label for="วันที่เข้าพัก">ผู้เข้าพักและห้อง</label><br>
-            <input class="preple" type="text" placeholder="ผู้เข้าพักและห้อง">
+            <label for="preple">ผู้เข้าพักและห้อง</label><br>
+            <div class="input-container">
+                <img src="{{preple}}" alt="People Icon" class="input-icon">
+                <input class="preple" type="text" placeholder="ผู้เข้าพักและห้อง">
+            </div>
         </div>
     </div>
     <button class="search">ค้นหาหอพัก</button>
-
-
 </div>

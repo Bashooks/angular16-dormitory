@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Home1Component } from './home1/home1.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatDialogModule } from '@angular/material/dialog';
@@ -33,6 +33,7 @@ import { SearchComponent } from './search/search.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    FormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

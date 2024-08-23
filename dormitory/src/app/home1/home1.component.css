@@ -13,6 +13,36 @@
     z-index: 1;
 }
 
+.btn-reg p{
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.icon-input {
+    display: flex; /* This container uses flex for potential other elements */
+    align-items: center;
+    margin-left: 17%;/* Align items vertically centered */
+}
+
+.btn-03 {
+    display: flex; /* Use flexbox to align icon and text within the button */
+    align-items: center; /* Vertically center the icon and text */
+    padding: 10px 20px;
+    background-color: #ffffff; /* Button background color */
+    color: rgb(0, 0, 0); /* Button text color */
+    border: none;
+    border-radius: 20px; /* Rounded corners for the button */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.btn-03 img {
+     /* Space between icon and text */
+    margin-right:5px;
+    width: 20px; /* Icon width */
+    height: auto; /* Maintain aspect ratio of the icon */
+}
+
+
 .header-image,
 .footer-image {
     width: 100%;
@@ -138,7 +168,7 @@
 
 .search-bar h2 {
     padding: 20px 0;
-    margin-top: 10%;
+    margin-top: 5%;
     font-size: 1.5em;
     color: white;
 }
@@ -263,8 +293,7 @@
 
 .icon-image {
     position: absolute;
-    left: 10px;
-    ;
+    left: 10px;;
     /* Adjust the position as needed */
     top: 50%;
     transform: translateY(-50%);
