@@ -1,0 +1,75 @@
+<nav class="nav">
+    <div class="nav-name">
+        <img [src]="logo" alt="logo" class="logo">
+        <div>
+            <h1 class="nameweb1">Dormitory</h1>
+            <h1 class="nameweb2">Web</h1>
+        </div>
+    </div>
+    <div class="nav-profile">
+        <img [src]="profile" alt="profile" class="profile">
+        <p>Boomnathat</p>
+        <p style="padding-right: 5px;"></p>
+        <div class="dropdown">
+            <button class="dropbtn" style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
+            <div class="dropdown-content">
+                <a href="#"><img [src]="dropdown1" alt="Settings Icon" class="dropdown-icon"> ตั้งค่า</a>
+                <a href="#"><img [src]="dropdown2" alt="Send Document Icon" class="dropdown-icon"> ส่งเอกสาร</a>
+                <a href="#"><img [src]="dropdown3" alt="Track Document Icon" class="dropdown-icon">
+                    ติดตามเอกสาร</a>
+                <a href="#"><img [src]="dropdown4" alt="Logout Icon" class="dropdown-icon"> ออกจากระบบ</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div>
+    <img [src]="iconback" alt="profile" class="profile">
+</div>
+<div class="upload-imge">
+    <div class="bk-imge" onclick="document.getElementById('file-input1').click()" style="cursor: pointer;">
+        <img [src]="iconimg" alt="profile" class="profile">
+        <input type="file" id="file-input1" class="file-input" style="display: none;" />
+    </div>
+    <div class="bk-imge" onclick="document.getElementById('file-input1').click()" style="cursor: pointer;">
+        <img [src]="iconimg" alt="profile" class="profile">
+        <input type="file" id="file-input1" class="file-input" style="display: none;" />
+    </div>
+    <div class="bk-imge" onclick="document.getElementById('file-input1').click()" style="cursor: pointer;">
+        <img [src]="iconimg" alt="profile" class="profile">
+        <input type="file" id="file-input1" class="file-input" style="display: none;" />
+    </div>
+    <div class="bk-imge" onclick="document.getElementById('file-input1').click()" style="cursor: pointer;">
+        <img [src]="iconimg" alt="profile" class="profile">
+        <input type="file" id="file-input1" class="file-input" style="display: none;" />
+    </div>
+
+</div>
+<div class="label-input">
+    <div class="set-icon">
+        <img [src]="logo" alt="room-info" class="room-info">
+        <label for="room-info"><strong>หอพัก</strong></label><br>
+        <textarea id="contact-info" rows="4" cols="50" placeholder=""></textarea>
+    </div>
+    <div class="set-icon">
+        <img [src]="icon1" alt="furniture-info" class="furniture-info">
+        <label for="furniture-info"><strong>เฟอร์นิเจอร์</strong></label><br>
+        <textarea id="contact-info" rows="4" cols="50" placeholder=""></textarea>
+    </div>
+    <div class="set-icon">
+        <img [src]="icon2" alt="contact-info" class="contact-info">
+        <label for="contact-info"><strong>ช่องทางติดต่อ</strong></label><br>
+        <textarea id="contact-info" rows="4" cols="50" placeholder=""></textarea>
+    </div>
+    <div class="footer-btn">
+        <button type="button" class="btn-primary">เพิ่มเอกสาร</button>
+        <div>
+            <button type="button" class="btn-secondary">บันทึก</button>
+            <button type="button" class="btn-warning">จองหอพัก</button>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="footer-content">
+        <p>Copyright © 2024 Dormitory. All rights reserved</p>
+    </div>
+</div>

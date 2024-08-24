@@ -121,7 +121,7 @@
 }
 
 .dropdown-content a:hover {
-    background-color: #1B66AB
+    background-color: #a9d6ff
 }
 
 .dropdown:hover .dropdown-content {
@@ -129,7 +129,7 @@
 }
 
 .dropdown:hover .dropbtn {
-    background-color: #1B66AB;
+    background-color: #87c5ff;
 }
 
 .dropdown-icon {
@@ -339,7 +339,7 @@
 /* CSS */
 .floating-help-button {
     position: fixed;
-    bottom: 20px;
+    bottom: 10px;
     right: 20px;
     z-index: 1000;
 }
