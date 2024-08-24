@@ -173,6 +173,11 @@ textarea{
     height: 100px;
 }
 
+.subdistrict, .province,.district,.price{
+    width: 100%;
+    height: 20px;
+}
+
 .footer-btn{
     display: flex;
     align-items: center;

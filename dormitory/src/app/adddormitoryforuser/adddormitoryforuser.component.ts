@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AdddormitoryforuserService } from './adddormitoryforuser.service';
 
 @Component({
   selector: 'app-adddormitoryforuser',
@@ -16,4 +17,36 @@ export class AdddormitoryforuserComponent {
   iconimg="https://s3-alpha-sig.figma.com/img/b215/b8b9/01de81a4ec122cfd4b80160b3e39fda3?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pf5eu4-SIY9~kJClwfhNM9bxBJRTFRR4eAWykf1RA~zTNF~u6wG7y1BvdZlaehhRA26TqSSTFNKVZkk4ceUo0vo8lBrPp7YfgXViUbH6ldeHjlLLrk8inA8lKrBp76Fm-3hREZgcR0oN865eA5bgZkwgS165eRtkfdUvygirrubC4pwlktSw~m26pze-lIJgx2ffoHEhJ3WhL3BF5blFrt4BKwTAMJu5zXUQclw2uBdncpKHAmBz7VYeu5Ft02iR9EetCppRh~mBnrKUWaA3XMnkGnJXl0FRkmXKQD5~MV9Ufll3pmiFyENX5LHCUETyz3-i3dRCDzud0w07NPB9yg__"
   icon1="https://s3-alpha-sig.figma.com/img/6648/b687/862c743c8299f0e450c6d62e8596a293?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=O4PPbHZT9j2Gz2HQ4oaGlN-WPfu9zD4owNzYdTBOEBgtRNDrbSGzmQa6GAx4vpC15~XiyACQ7XS1G70-MNUsBo7JzkrLmqjDhVOC92KdVIyTOLAGk930Q1HNnzuMiCSr-xFgwPDKfCOPaj3M27UEhAOUarOLK8A8sJXPxdsCIEGqXwE4hBKwNhacV1I1m~yiJn6uxNsBQcPDPsgpeL8w2tNAzrUENRk5E2LcYCoL2kY7fnTKpQR6NBdfyBMELVPEhI1iDovUZIhOeU6ylSRGpSjYz3FByFBNHsh9tFfAAiVOO0saXfzMHpTaSabm1ACrObvQ8obiTfVSv~sGaR0qBg__"
   icon2="https://s3-alpha-sig.figma.com/img/4a5c/6c1e/5dab94ddcbb97b2b94a1e49d24f82d85?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ntErWkApwnb7UQ07DrbTtoARmVfGdhC3ptBDeWQ2C3gw90lzRPgJtisCIRSG9kM63jM2M5WRiHuI4cAqL7AtHRYQAtiazka6wViXaabWT13H1kM-yekeNzFPjSVxg5Yg34TUFa-prcxCtFXL1oeCdL5mijpqGCdI-fe1ZJdDiKBVCuUaRoTb0FoAjPnCrqLfvSkRpvmRb7NFavmurXM9d2lLRxabVOcVUwXrMHEws5bZj1RKG4xj8PD739hQA9hbnpOl66ysOxdDevzd3-VqZd4xbeX0YUGsKvzPamOKrNqiDfT3bHJsyTie6ntnqBLI637tHDooYOv7E6u5t~ufyw__"
+  images: File[] = new Array(4);
+  fileUrls: string[] = [];
+
+constructor(private adddormitory:AdddormitoryforuserService) { }
+
+onFileSelected(event: any, index: number) {
+  const selectedFile: File = event.target.files[0];
+  if (selectedFile) {
+    this.images[index] = selectedFile;
+    console.log(`File selected for form ${index + 1}:`, this.images[index]);
+    this.images.forEach((image, index) => {
+      if (image) {
+        console.log(`Image ${index + 1}:`, image);
+      } else {
+        console.log(`Image ${index + 1}: No image selected`);
+      }
+    });
+  }
+}
+
+
+upload() {
+  this.adddormitory.uploadFiles(this.images).subscribe((response: any) => {
+    if (response && response.files) {
+      this.fileUrls = response.files.map((file: any) => file.fileUrl);
+    }
+    console.log('File URLs:', this.fileUrls);
+  }, error => {
+    console.error('Upload failed', error);
+  });
+}
+
 }

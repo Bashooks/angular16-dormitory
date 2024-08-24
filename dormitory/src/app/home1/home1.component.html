@@ -58,8 +58,8 @@
     <div>
         <div class="head-content">
             <h1>หอพักเเนะนำ!</h1>
-            <img src="{{iconimg4}}" alt="iconimg4">
-            <h1 class="arrow">&gt;</h1>
+            <img src="{{iconimg4}}" alt="iconimg4" >
+            <h1 class="arrow" (click)="Gotodormitory()">&gt;</h1>
         </div>
         <h2 style="color: #A3A0A0;">หอพักแนะนำที่สุดแสนสบาย บรรยากาศที่ดีเหมาะเเก่การพักของคุณ</h2>
     </div>
@@ -73,22 +73,17 @@
     </div>
 
 
-    <div class="card-container">
-        <div class="card">
-
+    <div class="card-container" >
+        <div class="card" *ngFor="let dorm of dormitories">
+            <img [src]="dorm.image" [alt]="dorm.title" class="card-image">
+            <div class="card-content">
+                <h3 class="card-title">{{ dorm.title }}</h3>
+                <p class="card-location">{{ dorm.location }}</p>
+                <p class="card-rating">{{ dorm.rating }}</p>
+            </div>
         </div>
-        <div class="card">
-
-        </div>
-        <div class="card">
-
-        </div>
-        <div class="card">
-
-        </div>
-
-
-    </div><br>
+    </div>
+    <br>
     <div>
         <div class="head-content">
             <h1>หอพักยอดนิยม!</h1>

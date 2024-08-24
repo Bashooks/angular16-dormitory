@@ -22,7 +22,33 @@ export class Home1Component {
   iconimg4 = "https://s3-alpha-sig.figma.com/img/846a/2cd7/2301426d5e7134138883a007e276684c?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=flVs-06ljY~czJmMOBSmZMC2ftziZ0c3XgBKcB9Qdi9GyHknx5ByOQuuEGsSMIETZuMj4yoMosBgKzcwtffxMYA9YqFKju2TIaSauucTg3FSHk9nNq65-nvtWn7udw7KlMzDyupvJfd3Kq~j-yXUS~rdgLAGMgsv7eU8R11IycEE36t3V2IiU93ZJtHqy6tdxiFpq4jb62Y51jsAxGptahIj~uuvFiDF~f~7mCvmFs6tHV4gn7z0hbaTUV4ayU4g4LGQzwQOKxo3l6ed4INcwozrvw-yLpmcrGItkyoYyzVqJMgtMxvRyGGSlOIW-P7VslbAYSy8vCklFQhIknuNSg__"
   iconimg5 = "https://s3-alpha-sig.figma.com/img/0e4f/3975/93d5b16382bf16776a56ef96938bf127?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=inTS12YyD~UhaHR9uXzLBNLMG96Si-oY0kAvBwEjnEwG2hHkWscio9hKGo28VcK93MkB8ZRWswU8~lBc~-TkEfMTOYi7VX0QU74UfK3OYftXx2hU9BcAxkdrSpkgzuiadoVVq8IMjGc-Qrnq3R5td5SQfz57ZWN9rrAiodUGQsVGoH3z9RxWbEPtZ~V97S6lIyjF9OU3Q-o1ZnxPyeDk0a2A8kQae56sRMeAZ7-UmYHZpvUWVF~EQ9EPbdfyWcyM6FxGBJGhwvxx2SkY4L8qrECIuatMCIuqrPLQI6oCLkPKIpPG-dQ7ZbyenU3vdoyumIYfGdc9KZUeRfkBThCjlQ__"
 
-
+  dormitories = [
+    {
+      image: 'https://s3-alpha-sig.figma.com/img/fed7/4aec/0500f5786847bae4c0e7de68afb426ed?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=eIfZxu0PkTxgMUXKBcE0e2gDqWSWLJk0UgbcPMyIZ-0AqNJ4Hg3Xs-rE76m5K1-WQk8fDO1bOnld0XS7iddue5PwCwX2QsXphZsYL6Q0BpDG61yZNOlkHp49FhP2q-usJjYFHMkiEudAF0GCZDn~u7VP9xbYIknTFhxuZfc~6GzkfpkUfkceV5fIa6pwDWvfEPhhqx28Qq9oq-aTGKmZ0zz2mdhl03K0p-UxlhjzIJ3Z3NIjld9eBEjX8AceSih23U9f~CSsw6peSfK5BqP~W4Zj1-WdGKoT6lNDyFFq~BpOdcMGjgchVWfNzdWqohwiCbti4MWEEBtumSR8~k6yCw__',
+      title: 'หอพักดวงเพชร',
+      location: 'กรุงเทพฯ',
+      rating: '⭐ 4.5'
+    },
+    {
+      image: 'https://s3-alpha-sig.figma.com/img/6f9c/4f65/deea3c5babf65fe13f0c94d1ba725f7b?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=iLwsy6Ln71ifGKqzPWPmKH4bB5K~mDbihMyeLBfHjdQwVUfHR9JJJdc7mxSbaOqQlecK1s9WOH7lIUKC5irjlLaVk9MT--uS5Y7p7-k6jPOIzLvkj95DQ3uH1KnOVWjvqyuYW6WUln1wkaasFTXABLu9alA7o-6JM7gVy6Sezkm4REAl1m9EiSFa-GgKyRJmZjrOTNcnbeWSPRsxvuIlTuKQBm0fgnIt2kyIwmWlBKEPntDJy0nBa3zfMUWuQhjIR6jTBbCmA304e6gnEs~w4RqLeX025dDu0~iaq4PkQv4fqPruBBsPWJRovoJBsks0Gx8dY3iTJPQGknXmTCdutA__',
+      title: 'บ้านณิชา วิว',
+      location: 'กรุงเทพฯ',
+      rating: '⭐ 4.7'
+    },
+    {
+      image: 'path_to_image3',
+      title: 'หอพักในฝัน',
+      location: 'กรุงเทพฯ',
+      rating: '⭐ 4.6'
+    },
+    {
+      image: 'path_to_image4',
+      title: 'เฮาส์ คอทเทจ',
+      location: 'กรุงเทพฯ',
+      rating: '⭐ 4.3'
+    },
+    
+  ];
 
   constructor(
     private rout: Router,
@@ -45,6 +71,10 @@ export class Home1Component {
 
   GotoSearch() {
     this.rout.navigate(['/search']); // This will navigate to the /search route
+  }
+
+  Gotodormitory(){
+    this.rout.navigate(['/dormitory'])
   }
 
 

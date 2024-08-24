@@ -36,7 +36,7 @@
             <h3>ที่พักสำหรับคุณ</h3>
         </div>
         <div>
-            <button class="btn-add-dormitory">เพิ่มหอพัก</button>
+            <button class="btn-add-dormitory" (click)="GotoAdddormitory()">เพิ่มหอพัก</button>
         </div>
     </div>
     <div *ngFor="let dorm of dormitories" class="dormitory-card">
@@ -49,7 +49,7 @@
 
                 <h3>{{ dorm.name }}</h3>
                 <div class="vertical-divider"></div>
-                <button class="book-now-btn1">เลือกห้อง</button>
+                <button class="book-now-btn1">ที่พักยอดนิยม</button>
 
             </div>
             <div class="dormitory-meta">

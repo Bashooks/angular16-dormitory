@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dormitory',
@@ -50,8 +51,13 @@ dormitories = [
   },
 ];
 
-  onViewDetails(dorm: { name: any; }) {
-    alert(`Viewing details for ${dorm.name}`);
-  }
+constructor( private router:Router){
+
+}
+
+
+GotoAdddormitory(){
+  this.router.navigate(['/adddormitory'])
+}
 }
 
