@@ -18,6 +18,8 @@ import { SearchComponent } from './search/search.component';
 import { DormitoryComponent } from './dormitory/dormitory.component';
 import { AdddormitoryforuserComponent } from './adddormitoryforuser/adddormitoryforuser.component';
 import { SubmitdocumentsComponent } from './submitdocuments/submitdocuments.component';
+import { DocumenttrackingComponent } from './documenttracking/documenttracking.component';
+import { SettingComponent } from './setting/setting.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { SubmitdocumentsComponent } from './submitdocuments/submitdocuments.comp
     SearchComponent,
     DormitoryComponent,
     AdddormitoryforuserComponent,
-    SubmitdocumentsComponent
+    SubmitdocumentsComponent,
+    DocumenttrackingComponent,
+    SettingComponent
   ],
   imports: [
     BrowserModule,

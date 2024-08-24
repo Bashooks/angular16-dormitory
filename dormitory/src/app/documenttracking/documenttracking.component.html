@@ -1,0 +1,94 @@
+<div >
+    <nav class="nav">
+        <div class="nav-name">
+            <img [src]="logo" alt="logo" class="logo">
+            <div>
+                <h1 class="nameweb1">Dormitory</h1>
+                <h1 class="nameweb2">Web</h1>
+            </div>
+        </div>
+        <div class="nav-profile">
+            <img [src]="profile" alt="profile" class="profile">
+            <p>Boomnathat</p>
+            <div class="dropdown">
+                <button class="dropbtn">V</button>
+                <div class="dropdown-content">
+                    <a href="#"><img [src]="dropdown1" alt="Settings Icon" class="dropdown-icon"> ตั้งค่า</a>
+                    <a href="#"><img [src]="dropdown2" alt="Send Document Icon" class="dropdown-icon"> ส่งเอกสาร</a>
+                    <a href="#"><img [src]="dropdown3" alt="Track Document Icon" class="dropdown-icon"> ติดตามเอกสาร</a>
+                    <a href="#"><img [src]="dropdown4" alt="Logout Icon" class="dropdown-icon"> ออกจากระบบ</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container" >
+        <aside class="sidebar">
+            
+            <div class="user-info">
+                <div class="user-icon"></div>
+                <div class="user-name">User</div>
+            </div>
+            <ul class="menu">
+                <li><a href="#">หน้าหลัก</a></li>
+                <li><a href="#">ส่งเอกสาร</a></li>
+                <li><a href="#">ติดตามเอกสาร</a></li>
+                <li><a href="#">ศูนย์ช่วยเหลือ</a></li>
+                <li><a href="#">ติดต่อเรา</a></li>
+                <li><a href="#">ตั้งค่า</a></li>
+                <li><a href="#">ออกจากระบบ</a></li>
+            </ul>
+        </aside>
+        
+        <main class="content" >
+            <div class="table-header">
+                <h2 style="margin-right: 10px;">ข้อมูลเอกสาร</h2>
+                <button class="upload-btn">+Upload</button>
+            </div>
+            <div class="document-table">
+                
+                <div class="table-controls">
+                    <label>Show
+                        <select>
+                            <option value="10">10</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">all</option>
+                        </select> entries
+                    </label>
+                    <label class="search-label">
+                        Search:
+                        <input type="text" class="search-input">
+                    </label>
+                </div>
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>รหัส</th>
+                                <th>ชื่อเอกสาร</th>
+                                <th>ประเภทเอกสาร</th>
+                                <th>วันที่อัพโหลด</th>
+                                <th>ตรวจสอบ</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let document of documents">
+                                <td>{{document.id}}</td>
+                                <td>{{document.name}}</td>
+                                <td>{{document.type}}</td>
+                                <td>{{document.uploadDate}}</td>
+                                <td><span [class]="document.statusClass">{{document.status}}</span></td>
+                                <td>
+                                    <span [class]="document.statusClass"></span>
+                                    <button class="upload-btn-small">+Upload</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
