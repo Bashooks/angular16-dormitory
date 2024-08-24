@@ -20,6 +20,7 @@ import { AdddormitoryforuserComponent } from './adddormitoryforuser/adddormitory
 import { SubmitdocumentsComponent } from './submitdocuments/submitdocuments.component';
 import { DocumenttrackingComponent } from './documenttracking/documenttracking.component';
 import { SettingComponent } from './setting/setting.component';
+import { DetaildormitoryComponent } from './detaildormitory/detaildormitory.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { SettingComponent } from './setting/setting.component';
     AdddormitoryforuserComponent,
     SubmitdocumentsComponent,
     DocumenttrackingComponent,
-    SettingComponent
+    SettingComponent,
+    DetaildormitoryComponent
   ],
   imports: [
     BrowserModule,
