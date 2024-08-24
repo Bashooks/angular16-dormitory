@@ -17,6 +17,7 @@ import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { SearchComponent } from './search/search.component';
 import { DormitoryComponent } from './dormitory/dormitory.component';
 import { AdddormitoryforuserComponent } from './adddormitoryforuser/adddormitoryforuser.component';
+import { SubmitdocumentsComponent } from './submitdocuments/submitdocuments.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AdddormitoryforuserComponent } from './adddormitoryforuser/adddormitory
     LoginDialogComponent,
     SearchComponent,
     DormitoryComponent,
-    AdddormitoryforuserComponent
+    AdddormitoryforuserComponent,
+    SubmitdocumentsComponent
   ],
   imports: [
     BrowserModule,
