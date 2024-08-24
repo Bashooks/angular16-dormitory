@@ -6,13 +6,15 @@ import { DormitoryComponent } from './dormitory/dormitory.component';
 import { AdddormitoryforuserComponent } from './adddormitoryforuser/adddormitoryforuser.component';
 import { SubmitdocumentsComponent } from './submitdocuments/submitdocuments.component';
 import { DocumenttrackingComponent } from './documenttracking/documenttracking.component';
+import { SettingComponent } from './setting/setting.component';
 
 const routes: Routes = [{ path: '', component: Home1Component },
                         { path: 'search', component: SearchComponent },
                         { path: 'dormitory', component: DormitoryComponent },
                         { path: 'adddormitory', component: AdddormitoryforuserComponent },
                         { path: 'submitdocuments', component: SubmitdocumentsComponent},
-                        { path: 'documenttracking', component: DocumenttrackingComponent}
+                        { path: 'documenttracking', component: DocumenttrackingComponent},
+                        { path: 'setting', component: SettingComponent}
                       ];
 
 @NgModule({

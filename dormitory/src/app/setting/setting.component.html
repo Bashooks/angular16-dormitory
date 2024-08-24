@@ -1,1 +1,104 @@
-<p>setting works!</p>
+<nav class="nav">
+    <div class="nav-name">
+        <img [src]="logo" alt="logo" class="logo">
+        <div>
+            <h1 class="nameweb1">Dormitory</h1>
+            <h1 class="nameweb2">Web</h1>
+        </div>
+    </div>
+    <div class="nav-profile">
+        <p style="padding-right: 15px;"> การจอง</p>
+        <p style="padding-right: 15px;">ช่วยเหลือ v</p>
+        <img [src]="profile" alt="profile" class="profile">
+        <p>Boomnathat</p>
+        <p style="padding-right: 5px;"></p>
+        <div class="dropdown">
+            <button class="dropbtn"
+                style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
+            <div class="dropdown-content">
+                <a href="#"><img [src]="dropdown1" alt="Settings Icon" class="dropdown-icon"> ตั้งค่า</a>
+                <a href="#"><img [src]="dropdown2" alt="Send Document Icon" class="dropdown-icon"> ส่งเอกสาร</a>
+                <a href="#"><img [src]="dropdown3" alt="Track Document Icon" class="dropdown-icon">
+                    ติดตามเอกสาร</a>
+                <a href="#"><img [src]="dropdown4" alt="Logout Icon" class="dropdown-icon"> ออกจากระบบ</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="settings-container">
+    <button class="btn-setting">การตั้งค่า</button>
+    <div class="settings-tabs">
+        <button class="tab active">ข้อมูลบัญชี</button>
+        <button class="tab">รหัสผ่านและการรักษาความปลอดภัย</button>
+        <button class="tab">จดหมายข่าวและข้อมูลทั่วไป</button>
+    </div><br>
+
+    <div class="content">
+        <div class="personal-info">
+            <h2>ข้อมูลส่วนตัว</h2>
+            <form class="personal-info-form">
+                <div class="form-group">
+                    <label for="name">ชื่อ-นามสกุล</label>
+                    <input type="text" id="name" placeholder="ต้องใส่ชื่อทุกอย่างเป็นตัวอักษรไม่เป็นค่าว่าง">
+                </div>
+                <div class="form-group">
+                    <label for="gender">เพศ</label>
+                    <select id="gender">
+                        <option value="male">ชาย</option>
+                        <option value="female">หญิง</option>
+                    </select>
+                    <label for="dob">วันเกิด</label>
+                    <div class="dob-selectors">
+                        <select id="day">
+                            <!-- Add day options -->
+                        </select>
+                        <select id="month">
+                            <!-- Add month options -->
+                        </select>
+                        <select id="year">
+                            <!-- Add year options -->
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address">ที่อยู่</label>
+                    <input type="text" id="address">
+                </div>
+                <div class="form-buttons">
+                    <button type="reset" class="btn cancel-btn">ยกเลิก</button>
+                    <button type="submit" class="btn save-btn">บันทึก</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="email-btn">
+            <div>
+                <h2>อีเมล</h2>
+                <p>คุณสามารถใช้ได้ไม่เกิน 3 อีเมล</p>
+            </div>
+            <button class="add-btn">+ เพิ่มอีเมล</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="email-btn">
+            <div>
+                <h2>โทรศัพท์มือถือ</h2>
+                <p>คุณสามารถใช้ได้ไม่เกิน 3 หมายเลขโทรศัพท์มือถือ</p>              
+            </div>
+            <button class="add-btn-to">+ เพิ่มหมายเลขโทรศัพท์มือถือ</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <h2>เชื่อมต่อบัญชี</h2>
+        <p>ในการเชื่อมต่อกับบัญชี Facebook คุณสามารถการเข้าสู่ระบบที่ปลอดภัยจากบัญชีผู้ใช้ของคุณผ่านทาง Facebook</p>
+        <div class="social-links">
+            <button class="social-btn facebook-btn">Facebook</button>
+            <button class="social-btn google-btn">Google</button>
+        </div>
+    </div>
+
+</div>
