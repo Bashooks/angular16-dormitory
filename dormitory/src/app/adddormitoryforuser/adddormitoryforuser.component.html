@@ -8,17 +8,16 @@
     </div>
     <div class="nav-profile">
         <img [src]="profile" alt="profile" class="profile">
-        <p>Boomnathat</p>
+        <p>{{userInfo.firstName}} {{userInfo.lastName}}</p>
         <p style="padding-right: 5px;"></p>
         <div class="dropdown">
             <button class="dropbtn"
                 style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
             <div class="dropdown-content">
-                <a href="#"><img [src]="dropdown1" alt="Settings Icon" class="dropdown-icon"> ตั้งค่า</a>
-                <a href="#"><img [src]="dropdown2" alt="Send Document Icon" class="dropdown-icon"> ส่งเอกสาร</a>
-                <a href="#"><img [src]="dropdown3" alt="Track Document Icon" class="dropdown-icon">
-                    ติดตามเอกสาร</a>
-                <a href="#"><img [src]="dropdown4" alt="Logout Icon" class="dropdown-icon"> ออกจากระบบ</a>
+                <a href="/setting"><img [src]="dropdown1" alt="Settings Icon" style="width: 20px; height: auto;"> ตั้งค่า</a>
+                        <a href="/submitdocuments"><img [src]="dropdown2" alt="Send Document Icon" style="width: 20px; height: auto;"> ส่งเอกสาร</a>
+                        <a href="/documenttracking"><img [src]="dropdown3" alt="Track Document Icon" style="width: 20px; height: auto;">ติดตามเอกสาร</a>
+                        <a href="#" (click)="logout()"><img [src]="dropdown4" alt="Logout Icon" style="width: 20px; height: auto;"> ออกจากระบบ</a>
             </div>
         </div>
     </div>
@@ -92,10 +91,10 @@
           <textarea id="contact-info" rows="4" cols="50" placeholder="" formControlName="contact"></textarea>
       </div>
       <div class="footer-btn">
-          <button type="button" class="btn-primary">เพิ่มเอกสาร</button>
+          <button type="button" class="btn-primary" (click)="gotosubmitdocuments()">เพิ่มเอกสาร</button>
           <div>
               <button type="submit" class="btn-secondary">บันทึก</button>
-              <button type="button" class="btn-warning">จองหอพัก</button>
+              <button type="button" class="btn-warning" (click)="gotodormitory()">จองหอพัก</button>
           </div>
       </div>
     </div>

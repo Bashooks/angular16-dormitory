@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AdddormitoryforuserService } from './adddormitoryforuser.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,7 +10,7 @@ import Swal from 'sweetalert2';
   templateUrl: './adddormitoryforuser.component.html',
   styleUrls: ['./adddormitoryforuser.component.css']
 })
-export class AdddormitoryforuserComponent {
+export class AdddormitoryforuserComponent implements OnInit{
   profile = "https://s3-alpha-sig.figma.com/img/a779/54ab/bdc5359c3b398aaed29b9aa4ca9d3b49?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=OCGcvuRUIe4tMcoGunvn~axpthmpfe~7HJ-Ep2lLE9YMFn03p~juHV0nfNr71xdheuMaZ6vMMrPsVore7CTsSZiq3l5UpHzB8QaBdSA~682iL-KQYUb4SIxiLg6-bgjDLON02dd-BFJ4e8gPXX3K576juUd8qS4qa7p1LcKD7Hv8nIxIA4nAw-3MHYkjiF~oF6LTi5invYYpKbn5uc~70vtFzp5B9rpHk-TuJsXRYr4jYKBft-GgRZyOWEzYZPu0ngGQQCtBeoyjfSA-omRoCWfdlTMA4D2JNQquEbzcU-UIhXsXE5Y13vQA5XPz7jiDm5dZIKDYNvUFFG52xiBf6g__"
   logo = "https://s3-alpha-sig.figma.com/img/0e4f/3975/93d5b16382bf16776a56ef96938bf127?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=inTS12YyD~UhaHR9uXzLBNLMG96Si-oY0kAvBwEjnEwG2hHkWscio9hKGo28VcK93MkB8ZRWswU8~lBc~-TkEfMTOYi7VX0QU74UfK3OYftXx2hU9BcAxkdrSpkgzuiadoVVq8IMjGc-Qrnq3R5td5SQfz57ZWN9rrAiodUGQsVGoH3z9RxWbEPtZ~V97S6lIyjF9OU3Q-o1ZnxPyeDk0a2A8kQae56sRMeAZ7-UmYHZpvUWVF~EQ9EPbdfyWcyM6FxGBJGhwvxx2SkY4L8qrECIuatMCIuqrPLQI6oCLkPKIpPG-dQ7ZbyenU3vdoyumIYfGdc9KZUeRfkBThCjlQ__"
   dropdown1 = "https://s3-alpha-sig.figma.com/img/3d66/ba0f/3e4e922613954917626b1f7d7b72f16a?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bUTtP7MTMcO92Kz41o1TKAcpn2mETf2H8IxawaRt9dsZ92OzgMxhW35G08~HOz72KMOZfR8ItPBQ-XfIMmSEv07OTE8U9G-gKgjqSCqPCSwKQ~UbF3wFeFCuzSFmppCaB3xSTzSCUSY1msfokiMIwch9hk~~g~YhxgTShmJXuBUoI18~OggWXFnm-bNOxVqIR5kypMABVY3R11aj8sn5ZYkOAp8wCe3aPqpWFyoqscKSzCQSS4hKBDAE3G3biv~RsQBXx6SP0-GNYaa4TiM0vtKCwmI48MsHug~wALkUM-mEJ6ubLD3~uNpRS2ldd3ZWcuLM06bGRqKUuJvLmuZaKQ__"
@@ -24,11 +25,12 @@ export class AdddormitoryforuserComponent {
   fileUrls: File[] = [];
   imagesUrls: string[] = [];
   dormitoryForm: FormGroup;
-
+  userInfo: any = null;
 
 
   constructor(private adddormitory: AdddormitoryforuserService,
     private fb: FormBuilder,
+    private router:Router
   ) {
     this.dormitoryForm = this.fb.group({
       name: [''],
@@ -42,6 +44,10 @@ export class AdddormitoryforuserComponent {
     });
   }
 
+
+  ngOnInit(): void {
+    this.checkToken()
+  }
   onFileSelected(event: any, index: number) {
     const selectedFile: File = event.target.files[0];
     if (selectedFile) {
@@ -86,9 +92,44 @@ export class AdddormitoryforuserComponent {
   }
 
 
+  gotodormitory(){
+    this.router.navigate(['/dormitory'])
+  }
+  gotosubmitdocuments(){
+    this.router.navigate(['/submitdocuments'])
+  }
+
+
+  checkToken() {
+    const token = localStorage.getItem('userToken'); // Adjust the key name if needed
+    if (token) {
+      this.userInfo = this.parseJwt(token);
+    }else{
+      this.router.navigate(['/home'])
+    }
+  }
+
+  parseJwt(token: string) {
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    const jsonPayload = decodeURIComponent(
+      atob(base64)
+        .split('')
+        .map(function (c) {
+          return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        })
+        .join('')
+    );
+
+    return JSON.parse(jsonPayload);
+  }
+
+  logout(){
+    localStorage.clear();
+    window.location.reload()
+  }
+  
 
 }
-function successNotification() {
-  throw new Error('Function not implemented.');
-}
+
 

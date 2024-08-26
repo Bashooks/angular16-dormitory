@@ -85,4 +85,9 @@ export class SubmitdocumentsComponent implements OnInit {
     }
   }
 
+  logout(){
+    localStorage.clear();
+    window.location.reload()
+  }
+
 }

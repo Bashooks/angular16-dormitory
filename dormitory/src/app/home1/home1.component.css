@@ -201,7 +201,7 @@
 
 .label-input {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     margin-left: 20%;
     text-align: left;
     font-family: Inter;

@@ -10,17 +10,16 @@
         <p style="padding-right: 15px;"> การจอง</p>
         <p style="padding-right: 15px;">ช่วยเหลือ v</p>
         <img [src]="profile" alt="profile" class="profile">
-        <p>Boomnathat</p>
+        <p>{{userInfo.firstName}} {{userInfo.lastName}}</p>
         <p style="padding-right: 5px;"></p>
         <div class="dropdown">
             <button class="dropbtn"
                 style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
             <div class="dropdown-content">
-                <a href="#"><img [src]="dropdown1" alt="Settings Icon" class="dropdown-icon"> ตั้งค่า</a>
-                <a href="#"><img [src]="dropdown2" alt="Send Document Icon" class="dropdown-icon"> ส่งเอกสาร</a>
-                <a href="#"><img [src]="dropdown3" alt="Track Document Icon" class="dropdown-icon">
-                    ติดตามเอกสาร</a>
-                <a href="#"><img [src]="dropdown4" alt="Logout Icon" class="dropdown-icon"> ออกจากระบบ</a>
+                <a href="/setting"><img [src]="dropdown1" alt="Settings Icon" style="width: 20px; height: auto;"> ตั้งค่า</a>
+                        <a href="/submitdocuments"><img [src]="dropdown2" alt="Send Document Icon" style="width: 20px; height: auto;"> ส่งเอกสาร</a>
+                        <a href="/documenttracking"><img [src]="dropdown3" alt="Track Document Icon" style="width: 20px; height: auto;">ติดตามเอกสาร</a>
+                        <a href="#" (click)="logout()"><img [src]="dropdown4" alt="Logout Icon" style="width: 20px; height: auto;"> ออกจากระบบ</a>
             </div>
         </div>
     </div>
@@ -35,35 +34,37 @@
     <div class="content">
         <div class="personal-info">
             <h2>ข้อมูลส่วนตัว</h2>
-            <form class="personal-info-form">
+            <form class="personal-info-form" (ngSubmit)="onSubmit()" #personalInfoForm="ngForm">
                 <div class="form-group">
-                    <label for="name">ชื่อ-นามสกุล</label>
-                    <input type="text" id="name" placeholder="ต้องใส่ชื่อทุกอย่างเป็นตัวอักษรไม่เป็นค่าว่าง">
+                  <label for="firstname">ชื่อ</label>
+                  <input type="text" id="firstname" name="firstname" [(ngModel)]="person.firstName" placeholder="ต้องใส่ชื่อทุกอย่างเป็นตัวอักษรไม่เป็นค่าว่าง" required>
                 </div>
                 <div class="form-group">
-                    <label for="gender">เพศ</label>
-                    <select id="gender">
-                        <option value="male">ชาย</option>
-                        <option value="female">หญิง</option>
-                    </select>
-                    
+                  <label for="lastname">นามสกุล</label>
+                  <input type="text" id="lastname" name="lastname" [(ngModel)]="person.lastName" placeholder="ต้องใส่ชื่อทุกอย่างเป็นตัวอักษรไม่เป็นค่าว่าง" required>
                 </div>
                 <div class="form-group">
-                    <label for="dob">วันเกิด</label>
-                    <div class="dob-selectors">
-                        <input type="date" id="dob" >
-                    </div>
+                  <label for="gender">เพศ</label>
+                  <select id="gender" name="gender" [(ngModel)]="person.gender" required>
+                    <option value="male">ชาย</option>
+                    <option value="female">หญิง</option>
+                  </select>
                 </div>
-                
                 <div class="form-group">
-                    <label for="address">ที่อยู่</label>
-                    <input type="text" id="address">
+                  <label for="dob">วันเกิด</label>
+                  <input type="date" id="dob" name="dob" [(ngModel)]="person.dateOfBirth" required>
+                </div>
+                <div class="form-group">
+                  <label for="address">ที่อยู่</label>
+                  <input type="text" id="address" name="address" [(ngModel)]="person.address" required>
                 </div>
                 <div class="form-buttons">
-                    <button type="reset" class="btn cancel-btn">ยกเลิก</button>
-                    <button type="submit" class="btn save-btn">บันทึก</button>
+                  <button type="reset" class="btn cancel-btn">ยกเลิก</button>
+                  <button type="submit" class="btn save-btn">บันทึก</button>
                 </div>
-            </form>
+              </form>
+              
+            
         </div>
     </div>
 

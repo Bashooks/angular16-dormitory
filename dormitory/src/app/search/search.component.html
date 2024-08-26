@@ -9,14 +9,14 @@
     </div>
     <div class="nav-profile">
         <img src="{{profile}}" alt="profile" class="profile">
-        <p style="padding-right: 5px;">{{profilename}}</p>
+        <p style="padding-right: 5px;">{{userInfo.firstName}} {{userInfo.lastName}}</p>
         <div class="dropdown">
             <button class="dropbtn">V</button>
             <div class="dropdown-content">
-                <a href="#"><img src="{{dropdown1}}" alt="Settings Icon" class="dropdown-icon"> ตั้งค่า</a>
-                <a href="#"><img src="{{dropdown2}}" alt="Send Document Icon" class="dropdown-icon"> ส่งเอกสาร</a>
-                <a href="#"><img src="{{dropdown3}}" alt="Track Document Icon" class="dropdown-icon"> ติดตามเอกสาร</a>
-                <a href="#"><img src="{{dropdown4}}" alt="Logout Icon" class="dropdown-icon"> ออกจากระบบ</a>
+                <a href="/setting"><img [src]="dropdown1" alt="Settings Icon" style="width: 20px; height: auto;"> ตั้งค่า</a>
+                <a href="/submitdocuments"><img [src]="dropdown2" alt="Send Document Icon" style="width: 20px; height: auto;"> ส่งเอกสาร</a>
+                <a href="/documenttracking"><img [src]="dropdown3" alt="Track Document Icon" style="width: 20px; height: auto;">ติดตามเอกสาร</a>
+                <a href="#" (click)="logout()"><img [src]="dropdown4" alt="Logout Icon" style="width: 20px; height: auto;"> ออกจากระบบ</a>
             </div>
         </div>
         
@@ -32,7 +32,7 @@
         <label for="location">ชื่อเมือง สถานที่ หรือหอพัก</label><br>
         <div class="input-container">
             <img src="{{location}}" alt="Location Icon" class="input-icon">
-            <input class="location" style="padding-left: 50px;" type="text" placeholder="ชื่อเมือง สถานที่ หรือหอพัก">
+            <input [(ngModel)]="searchLocation" class="location" style="padding-left: 50px;" type="text" placeholder="ชื่อเมือง สถานที่ หรือหอพัก">
         </div>
     </div><br>
     <div class="line">
@@ -51,5 +51,5 @@
             </div>
         </div>
     </div>
-    <button class="search" >ค้นหาหอพัก</button>
+    <button class="search" (click)="search()" >ค้นหาหอพัก</button> 
 </div>

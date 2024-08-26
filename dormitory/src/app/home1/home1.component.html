@@ -17,9 +17,9 @@
                 <div *ngIf="isLoggedIn" class="dropdown">
                     <button class="dropbtn" style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
                     <div class="dropdown-content">
-                        <a href="#"><img [src]="dropdown1" alt="Settings Icon" style="width: 20px; height: auto;"> ตั้งค่า</a>
+                        <a href="/setting"><img [src]="dropdown1" alt="Settings Icon" style="width: 20px; height: auto;"> ตั้งค่า</a>
                         <a href="/submitdocuments"><img [src]="dropdown2" alt="Send Document Icon" style="width: 20px; height: auto;"> ส่งเอกสาร</a>
-                        <a href="#"><img [src]="dropdown3" alt="Track Document Icon" style="width: 20px; height: auto;">ติดตามเอกสาร</a>
+                        <a href="/documenttracking"><img [src]="dropdown3" alt="Track Document Icon" style="width: 20px; height: auto;">ติดตามเอกสาร</a>
                         <a href="#" (click)="logout()"><img [src]="dropdown4" alt="Logout Icon" style="width: 20px; height: auto;"> ออกจากระบบ</a>
                     </div>
                 </div>
@@ -40,27 +40,27 @@
 
         <div class="label-input">
             <div class="label-on-input">
-                <label for="district">อำเภอ/จังหวัด</label><br>
+                <label for="district">จังหวัด</label><br>
                 <div class="input-container">
-                    <input id="district" class="input1" type="text" placeholder="อำเภอ/จังหวัด">
+                    <input id="district" class="input1" type="text" placeholder="จังหวัด" [(ngModel)]="district">
                     <img src="{{iconimg1}}" alt="Icon Image" class="icon-image">
                 </div>
             </div>
             <div>
                 <label for="district">วันที่เข้าพัก</label><br>
                 <div class="input-container">
-                    <input class="input3" type="text" placeholder="">
+                    <input class="input3" type="text" placeholder="วันที่เข้าพัก">
                     <img src="{{iconimg2}}" alt="Icon Image" class="icon-image">
                 </div>
 
             </div>
-            <div>
-                <label for="district">ผู้เข้าพัก</label><br>
-                <div class="input-container">
+            <div style="flex-wrap: nowrap;">
+                <label for="district" >ผู้เข้าพัก</label><br>
+                <div class="input-container" style="flex-wrap: nowrap;">
                     <input class="input3" type="text" placeholder="ผู้เข้าพัก">
                     <img src="{{iconimg3}}" alt="Icon Image" class="icon-image">
                 </div>
-                <button>ค้นหา</button>
+                <button style="flex-wrap: nowrap;" (click)="logDistrict()">ค้นหา</button>
             </div>
         </div>
 
@@ -79,10 +79,10 @@
     </div>
     <div class="btn-content">
         <div class="button-content">
-            <button class="btn1">กรุงเทพฯ</button>
+            <button class="btn2" (click)="getDormitories()" [ngClass]="{'active-btn': selectedCity === 'bangkok'}">กรุงเทพฯ</button>
         </div>
         <div class="button-content">
-            <button class="btn2">เชียงใหม่</button>
+            <button class="btn2" (click)="getDormitoriesch()" [ngClass]="{'active-btn': selectedCity === 'chiangmai'}">เชียงใหม่</button>
         </div>
     </div>
     <div class="card-container">
@@ -100,7 +100,7 @@
         <div class="head-content">
             <h1>หอพักยอดนิยม!</h1>
             <img src="{{iconimg4}}" alt="iconimg4">
-            <h1 class="arrow">&gt;</h1>
+            <h1 class="arrow" (click)="Gotodormitory()">&gt;</h1>
         </div>
         <h2 style="color: #A3A0A0;">หอพักยอดนิยมที่มีคนเข้าใช้และการันตีว่าสบายที่สุด</h2>
     </div>

@@ -13,11 +13,10 @@
     <div class="dropdown">
       <button class="dropbtn" style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
       <div class="dropdown-content">
-        <a href="#"><img [src]="dropdown1" alt="Settings Icon" class="dropdown-icon"> ตั้งค่า</a>
-        <a href="#"><img [src]="dropdown2" alt="Send Document Icon" class="dropdown-icon"> ส่งเอกสาร</a>
-        <a href="#"><img [src]="dropdown3" alt="Track Document Icon" class="dropdown-icon">
-          ติดตามเอกสาร</a>
-        <a href="#"><img [src]="dropdown4" alt="Logout Icon" class="dropdown-icon"> ออกจากระบบ</a>
+        <a href="/setting"><img [src]="dropdown1" alt="Settings Icon" style="width: 20px; height: auto;"> ตั้งค่า</a>
+        <a href="/submitdocuments"><img [src]="dropdown2" alt="Send Document Icon" style="width: 20px; height: auto;"> ส่งเอกสาร</a>
+        <a href="/documenttracking"><img [src]="dropdown3" alt="Track Document Icon" style="width: 20px; height: auto;">ติดตามเอกสาร</a>
+        <a href="#" (click)="logout()"><img [src]="dropdown4" alt="Logout Icon" style="width: 20px; height: auto;"> ออกจากระบบ</a>
       </div>
     </div>
   </div>
@@ -27,13 +26,13 @@
   <aside class="sidebar">
     <h3 style="text-align: center;">User</h3>
     <ul class="menu">
-      <li><a href="#">หน้าหลัก</a></li>
-      <li><a href="#">ส่งเอกสาร</a></li>
+      <li><a href="/home">หน้าหลัก</a></li>
+      <li><a href="/submitdocuments">ส่งเอกสาร</a></li>
       <li><a href="/documenttracking">ติดตามเอกสาร</a></li>
       <li><a href="#">ศูนย์ช่วยเหลือ</a></li>
       <li><a href="#">ติดต่อเรา</a></li>
-      <li><a href="#">ตั้งค่า</a></li>
-      <li><a href="#">ออกจากระบบ</a></li>
+      <li><a href="/setting">ตั้งค่า</a></li>
+      <li><a href="#" (click)="logout()">ออกจากระบบ</a></li>
     </ul>
   </aside>
   <main class="content">

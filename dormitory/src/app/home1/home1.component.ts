@@ -34,7 +34,8 @@ export class Home1Component implements OnInit {
   dormitories: any = [];
   isLoggedIn: boolean = false;
   userInfo: any = null;
-
+  selectedCity: string = '';
+  district: string = '';
 
   constructor(
     private rout: Router,
@@ -72,8 +73,23 @@ export class Home1Component implements OnInit {
   getDormitories() {
     this.homeservice.getAllDormitories().subscribe(
       (data: any[]) => {
+        this.dormitoriesBKK = null
         this.dormitoriesBKK = data.filter(dorm => dorm.province === 'กรุงเทพฯ').slice(0, 4);
-    
+       
+      },
+      (error) => {
+        console.error('Error fetching dormitories', error);
+      }
+    );
+  }
+
+ 
+  getDormitoriesch() {
+    this.homeservice.getAllDormitories().subscribe(
+      (data: any[]) => {
+        this.dormitoriesBKK = null
+        this.dormitoriesBKK = data.filter(dorm => dorm.province === 'เชียงใหม่').slice(0, 4);
+        
       },
       (error) => {
         console.error('Error fetching dormitories', error);
@@ -93,6 +109,20 @@ export class Home1Component implements OnInit {
       }
     );
   }
+
+  logDistrict() {
+    this.homeservice.getAllDormitories().subscribe(
+      (data: any[]) => {
+        this.dormitories = null
+        this.dormitories = data.filter(dorm => dorm.province === this.district).slice(0, 4);
+        
+      },
+      (error) => {
+        console.error('Error fetching dormitories', error);
+      }
+    );
+  }
+  
 
   checkToken() {
     const token = localStorage.getItem('userToken'); // Adjust the key name if needed
