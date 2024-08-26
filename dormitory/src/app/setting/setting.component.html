@@ -29,8 +29,7 @@
     <button class="btn-setting">การตั้งค่า</button>
     <div class="settings-tabs">
         <button class="tab active">ข้อมูลบัญชี</button>
-        <button class="tab">รหัสผ่านและการรักษาความปลอดภัย</button>
-        <button class="tab">จดหมายข่าวและข้อมูลทั่วไป</button>
+        
     </div><br>
 
     <div class="content">
@@ -47,19 +46,15 @@
                         <option value="male">ชาย</option>
                         <option value="female">หญิง</option>
                     </select>
+                    
+                </div>
+                <div class="form-group">
                     <label for="dob">วันเกิด</label>
                     <div class="dob-selectors">
-                        <select id="day">
-                            <!-- Add day options -->
-                        </select>
-                        <select id="month">
-                            <!-- Add month options -->
-                        </select>
-                        <select id="year">
-                            <!-- Add year options -->
-                        </select>
+                        <input type="date" id="dob" >
                     </div>
                 </div>
+                
                 <div class="form-group">
                     <label for="address">ที่อยู่</label>
                     <input type="text" id="address">

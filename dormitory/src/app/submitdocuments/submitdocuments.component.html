@@ -1,66 +1,66 @@
 <nav class="nav">
-    <div class="nav-name">
-        <img [src]="logo" alt="logo" class="logo">
-        <div>
-            <h1 class="nameweb1">Dormitory</h1>
-            <h1 class="nameweb2">Web</h1>
-        </div>
+  <div class="nav-name">
+    <img [src]="logo" alt="logo" class="logo">
+    <div>
+      <h1 class="nameweb1">Dormitory</h1>
+      <h1 class="nameweb2">Web</h1>
     </div>
-    <div class="nav-profile">
-        <img [src]="profile" alt="profile" class="profile">
-        <p>Boomnathat</p>
-        <p style="padding-right: 5px;"></p>
-        <div class="dropdown">
-            <button class="dropbtn" style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
-            <div class="dropdown-content">
-                <a href="#"><img [src]="dropdown1" alt="Settings Icon" class="dropdown-icon"> ตั้งค่า</a>
-                <a href="#"><img [src]="dropdown2" alt="Send Document Icon" class="dropdown-icon"> ส่งเอกสาร</a>
-                <a href="#"><img [src]="dropdown3" alt="Track Document Icon" class="dropdown-icon">
-                    ติดตามเอกสาร</a>
-                <a href="#"><img [src]="dropdown4" alt="Logout Icon" class="dropdown-icon"> ออกจากระบบ</a>
-            </div>
-        </div>
+  </div>
+  <div class="nav-profile">
+    <img [src]="profile" alt="profile" class="profile">
+    <p>{{userInfo.firstName}} {{userInfo.lastName}}</p>
+    <p style="padding-right: 5px;"></p>
+    <div class="dropdown">
+      <button class="dropbtn" style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
+      <div class="dropdown-content">
+        <a href="#"><img [src]="dropdown1" alt="Settings Icon" class="dropdown-icon"> ตั้งค่า</a>
+        <a href="#"><img [src]="dropdown2" alt="Send Document Icon" class="dropdown-icon"> ส่งเอกสาร</a>
+        <a href="#"><img [src]="dropdown3" alt="Track Document Icon" class="dropdown-icon">
+          ติดตามเอกสาร</a>
+        <a href="#"><img [src]="dropdown4" alt="Logout Icon" class="dropdown-icon"> ออกจากระบบ</a>
+      </div>
     </div>
+  </div>
 </nav>
 
 <div class="container">
-    <aside class="sidebar">
-      <h3 style="text-align: center;">User</h3>
-      <ul class="menu">
-        <li><a href="#">หน้าหลัก</a></li>
-        <li><a href="#">ส่งเอกสาร</a></li>
-        <li><a href="#">ติดตามเอกสาร</a></li>
-        <li><a href="#">ศูนย์ช่วยเหลือ</a></li>
-        <li><a href="#">ติดต่อเรา</a></li>
-        <li><a href="#">ตั้งค่า</a></li>
-        <li><a href="#">ออกจากระบบ</a></li>
-      </ul>
-    </aside>
-    <main class="content">
-      <div class="document-form">
-        <h2>ส่งเอกสาร</h2>
-        <div class="form-group">
-          <label for="sender">ผู้ส่งเอกสาร</label>
-          <input type="text" id="sender" placeholder="ชื่อผู้ส่งเอกสารต้องไม่เป็นค่าว่าง (สามารถใช้ภาษาอังกฤษได้)">
-        </div>
-        <div class="form-group">
-          <label for="recipient">ผู้รับเอกสาร</label>
-          <input type="text" id="recipient" placeholder="กรุณากรอกชื่อผู้รับเอกสารหากจะส่งเอกสารได้สำเร็จ">
-        </div>
-        <div class="form-group">
-          <label for="title">หัวข้อเอกสาร</label>
-          <input type="text" id="title" placeholder="กรุณากรอกชื่อเอกสาร ถ้าไม่ระบุชื่อจะส่งเอกสารไม่ได้สำเร็จ (สามารถใช้ภาษาไทยได้)">
-        </div>
-        <div class="form-group">
-          <label for="file">เลือกไฟล์</label>
-          <input type="text" id="file" placeholder="อัปโหลดไฟล์ doc, ppt, pptx, docx, rar, zip, jpg, pdf">
-        </div>
-        <div class="form-group">
-          <label for="uploaded-file">เอกสารตัวอย่าง</label>
-          <div class="uploaded-file">หนังสือสัญญาเช่าหอพัก.pdf</div>
-        </div>
-        <button class="submit-btn">บันทึก</button>
+  <aside class="sidebar">
+    <h3 style="text-align: center;">User</h3>
+    <ul class="menu">
+      <li><a href="#">หน้าหลัก</a></li>
+      <li><a href="#">ส่งเอกสาร</a></li>
+      <li><a href="/documenttracking">ติดตามเอกสาร</a></li>
+      <li><a href="#">ศูนย์ช่วยเหลือ</a></li>
+      <li><a href="#">ติดต่อเรา</a></li>
+      <li><a href="#">ตั้งค่า</a></li>
+      <li><a href="#">ออกจากระบบ</a></li>
+    </ul>
+  </aside>
+  <main class="content">
+    <div class="document-form">
+      <h2>ส่งเอกสาร</h2>
+      
+      <div class="form-group">
+        <label for="recipient">ผู้รับเอกสาร</label>
+        <input type="text" id="recipient" [(ngModel)]="recipientName" placeholder="กรุณากรอกชื่อผู้รับเอกสารหากจะส่งเอกสารได้สำเร็จ">
       </div>
-    </main>
-  </div>
-  
+      <div class="form-group">
+        <label for="title">ชื่อเอกสาร</label>
+        <input type="text" id="title" [(ngModel)]="documentTitle" placeholder="กรุณากรอกชื่อเอกสาร ถ้าไม่ระบุชื่อจะส่งเอกสารไม่ได้สำเร็จ (สามารถใช้ภาษาไทยได้)">
+      </div>
+      <div class="form-group">
+        <label for="typefile">ประเภทเอกสาร</label>
+        <input type="text" id="typefile" [(ngModel)]="typefile" placeholder="กรุณากรอกประเภทเอกสาร ถ้าไม่ระบุประเภทเอกสารจะส่งเอกสารไม่ได้สำเร็จ (สามารถใช้ภาษาไทยได้)">
+      </div>
+      <div class="form-group">
+        <label for="file">เลือกไฟล์(pdf)</label>
+        <input type="file" id="file" (change)="onFileSelected($event)">
+      </div>
+      <div class="form-group">
+        <label for="uploaded-file">เอกสารตัวอย่าง</label>
+        <div class="uploaded-file" >หนังสือสัญญาเช่าหอพัก.pdf</div>
+      </div>
+      <button class="submit-btn" (click)="onSubmit()">บันทึก</button>
+    </div>
+  </main>
+</div>

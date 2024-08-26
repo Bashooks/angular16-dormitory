@@ -10,13 +10,14 @@ import { SettingComponent } from './setting/setting.component';
 import { DetaildormitoryComponent } from './detaildormitory/detaildormitory.component';
 
 const routes: Routes = [{ path: '', component: Home1Component },
+                        { path: 'home', component: Home1Component },
                         { path: 'search', component: SearchComponent },
                         { path: 'dormitory', component: DormitoryComponent },
                         { path: 'adddormitory', component: AdddormitoryforuserComponent },
                         { path: 'submitdocuments', component: SubmitdocumentsComponent},
                         { path: 'documenttracking', component: DocumenttrackingComponent},
                         { path: 'setting', component: SettingComponent},
-                        { path: 'detail', component: DetaildormitoryComponent},
+                        { path: 'detail/:id', component: DetaildormitoryComponent},
 
                       ];
 

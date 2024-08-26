@@ -41,7 +41,7 @@
     </div>
     <div *ngFor="let dorm of dormitories" class="dormitory-card">
         <div class="dormitory-image">
-            <img [src]="dorm.imageUrl" alt="Dormitory Image" />
+            <img [src]="dorm.imageUrls[0]" alt="Dormitory Image" />
         </div>
         <div class="dormitory-info">
 
@@ -54,16 +54,16 @@
             </div>
             <div class="dormitory-meta">
                 <div class="rating">
-                    <span class="type">{{ dorm.type }}</span>
+                    <span class="type">หอพัก</span>
                     <span *ngFor="let star of [1,2,3,4,5]" [ngClass]="{'filled': star <= dorm.rating}">&#9733;</span>
                 </div>
                 <p>THB {{ dorm.price | number:'1.2-2' }}</p>
             </div>
             <div class="location-price">
-                <p class="location">{{ dorm.location }}</p>
+                <p class="location">{{dorm.province}}</p>
                 <div class="dormitory-price">
                     <span>(ไม่รวมภาษีและค่าธรรมเนียม)</span><br>
-                    <button class="book-now-btn">เลือกห้อง</button>
+                    <button class="book-now-btn" (click)="selectRoom(dorm.id)">เลือกห้อง</button>
                 </div>
             </div>
         </div>

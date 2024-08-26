@@ -1,75 +1,65 @@
 <nav class="nav">
-    <div class="nav-name">
-        <img [src]="logo" alt="logo" class="logo">
-        <div>
-            <h1 class="nameweb1">Dormitory</h1>
-            <h1 class="nameweb2">Web</h1>
-        </div>
+  <div class="nav-name">
+    <img [src]="logo" alt="logo" class="logo">
+    <div>
+      <h1 class="nameweb1">Dormitory</h1>
+      <h1 class="nameweb2">Web</h1>
     </div>
-    <div class="nav-profile">
-        <p style="padding-right: 15px;">ค้นหา</p>
-        <img [src]="profile" alt="profile" class="profile">
-        <p>Boomnathat</p>
-        <p style="padding-right: 5px;"></p>
-        <div class="dropdown">
-            <button class="dropbtn"
-                style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
-            <div class="dropdown-content">
-                <a href="#"><img [src]="dropdown1" alt="Settings Icon" class="dropdown-icon"> ตั้งค่า</a>
-                <a href="#"><img [src]="dropdown2" alt="Send Document Icon" class="dropdown-icon"> ส่งเอกสาร</a>
-                <a href="#"><img [src]="dropdown3" alt="Track Document Icon" class="dropdown-icon">
-                    ติดตามเอกสาร</a>
-                <a href="#"><img [src]="dropdown4" alt="Logout Icon" class="dropdown-icon"> ออกจากระบบ</a>
-            </div>
-        </div>
-    </div>
-</nav>
-<div class="content">
-    <div class="image-gallery">
-      <img [src]="image1" alt="Room Image 1" class="gallery-img">
-      <img [src]="image1" alt="Room Image 2" class="gallery-img">
-      <img [src]="image1" alt="Room Image 3" class="gallery-img">
-      <img [src]="image1" alt="Room Image 4" class="gallery-img">
-    </div>
-
-    <div class="apartment-info">
-      <h2>เลอเลิศ อพาร์ตเมนต์</h2>
-      <div class="info-section">
-        <h3>ข้อมูลหอพัก</h3>
-        <p>ช.วิภาวดีรังสิต16/20, ถ.วิภาวดี-รังสิต, ข.ดินแดง กทม., 10400</p>
-        <p>อพาร์ทเม้นท์สวย ใกล้ MRT รัชดาภิเษก และสวนจตุจักร รัชดาภิเษก</p>
-        <p>– ออกได้ทั้งถนนวิภาวดีรังสิตและถนนรัชดาภิเษก</p>
-        <p>– เดิน 10 นาที ถึงห้างสรรพสินค้าใหญ่ๆ รัชดาภิเษกและMRT รัชดาภิเษก (รถไฟฟ้าใต้ดิน)</p>
-      </div>
-
-      <div class="info-section">
-        <h3>เฟอร์นิเจอร์</h3>
-        <ul>
-          <li>เตียงคู่ สามารถรวมเป็นเตียง 6 ฟุตได้ค่ะ</li>
-          <li>ตู้เสื้อผ้า + โต๊ะเครื่องแป้ง</li>
-          <li>ตู้เย็น + ทีวี</li>
-          <li>พัดลมติดผนัง + แอร์</li>
-          <li>เครื่องทำน้ำอุ่น</li>
-          <li>ชั้นวางของ</li>
-          <li>Free WIFI</li>
-        </ul>
-      </div>
-
-      <div class="contact-section">
-        <h3>ช่องทางติดต่อ</h3>
-        <p>เบอร์มือถือ 0834724229</p>
-        <h3>คะแนน</h3>
-        <div class="rating">
-          <span class="star">&#9733;</span>
-          <span class="star">&#9733;</span>
-          <span class="star">&#9733;</span>
-          <span class="star">&#9733;</span>
-          <span class="star">&#9733;</span>
-        </div>
+  </div>
+  <div class="nav-profile">
+    <p style="padding-right: 15px;">ค้นหา</p>
+    <img [src]="profile" alt="profile" class="profile">
+    <p>Boomnathat</p>
+    
+    <div class="dropdown">
+      <button class="dropbtn" style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
+      <div class="dropdown-content">
+        <a href="#"><img [src]="dropdown1" alt="Settings Icon" class="dropdown-icon"> ตั้งค่า</a>
+        <a href="#"><img [src]="dropdown2" alt="Send Document Icon" class="dropdown-icon"> ส่งเอกสาร</a>
+        <a href="#"><img [src]="dropdown3" alt="Track Document Icon" class="dropdown-icon">
+          ติดตามเอกสาร</a>
+        <a href="#"><img [src]="dropdown4" alt="Logout Icon" class="dropdown-icon"> ออกจากระบบ</a>
       </div>
     </div>
   </div>
+</nav>
+<div class="content">
+  <div class="image-gallery">
+    <img *ngFor="let image of dormitory.imageUrls" [src]="image" alt="Room Image" class="gallery-img"
+      style="background-color: #BFBFBF;">
+  </div>
+  <div class="apartment-info">
+    <h2>{{dormitory.name}}</h2>
+    <div class="info-section">
+      <h3>ข้อมูลหอพัก</h3>
+      <p>{{dormitory.province}}, {{dormitory.district}}, {{dormitory.subDistrict}}</p>
+      <p>{{dormitory.description}}</p>
+    </div>
 
-  <footer>
-    <p>&copy; 2024 Dormitory . All rights reserved</p>
-  </footer>
+    <div class="info-section">
+      <h3>เฟอร์นิเจอร์</h3>
+      <ul>
+        <li *ngFor="let item of dormitory.furniture.split('\n')">
+          {{item }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="contact-section">
+      <h3>ช่องทางติดต่อ</h3>
+      <p>{{dormitory.contact}} </p>
+      <h3>คะแนน</h3>
+      <div class="rating">
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+        <span class="star">&#9733;</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2024 Dormitory . All rights reserved</p>
+</footer>

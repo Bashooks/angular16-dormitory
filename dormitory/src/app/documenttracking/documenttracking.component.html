@@ -50,10 +50,8 @@
                 <div class="table-controls">
                     <label>Show
                         <select>
-                            <option value="10">10</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                            <option value="100">all</option>
+                            
+                            <option value="">all</option>
                         </select> entries
                     </label>
                     <label class="search-label">
@@ -75,9 +73,9 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let document of documents">
-                                <td>{{document.id}}</td>
-                                <td>{{document.name}}</td>
-                                <td>{{document.type}}</td>
+                                <td>{{ document.id }}</td>
+                                <td>{{ document.documentTitle }}</td>
+                                <td>{{document.typefile}}</td>
                                 <td>{{document.uploadDate}}</td>
                                 <td><span [class]="document.statusClass">{{document.status}}</span></td>
                                 <td>

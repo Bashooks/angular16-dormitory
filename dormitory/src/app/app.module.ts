@@ -21,6 +21,7 @@ import { SubmitdocumentsComponent } from './submitdocuments/submitdocuments.comp
 import { DocumenttrackingComponent } from './documenttracking/documenttracking.component';
 import { SettingComponent } from './setting/setting.component';
 import { DetaildormitoryComponent } from './detaildormitory/detaildormitory.component';
+import { AdddormitoryforuserService } from './adddormitoryforuser/adddormitoryforuser.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { DetaildormitoryComponent } from './detaildormitory/detaildormitory.comp
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AdddormitoryforuserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

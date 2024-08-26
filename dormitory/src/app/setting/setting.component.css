@@ -199,7 +199,7 @@
 
 .personal-info-form input,
 .personal-info-form select {
-    width: 100%;
+    width: 99%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
