@@ -98,7 +98,13 @@
 }
 
 .head-web button.btn-02 {
-  
+    border-radius: 10px;
+    height: 40px;
+    background-color: #1F496B;
+    border: none;
+    color: white;
+
+    padding: 5px 25px;
 }
 
 .head-web button.btn-01 {
