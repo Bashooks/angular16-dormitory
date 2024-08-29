@@ -11,7 +11,7 @@
             <img [src]="profile" alt="profile" class="profile">
             <p>{{userInfo.firstName}} {{userInfo.lastName}}</p>
             <div class="dropdown">
-                <button class="dropbtn">V</button>
+                <button class="dropbtn" style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
                 <div class="dropdown-content">
                     <a href="/setting"><img [src]="dropdown1" alt="Settings Icon" style="width: 20px; height: auto;">
                         ตั้งค่า</a>
@@ -31,7 +31,7 @@
 
             <div class="user-info">
                 <div class="user-icon"></div>
-                <div class="user-name">User</div>
+                <div class="user-name" >User</div>
             </div>
             <ul class="menu">
                 <li><a href="/home">หน้าหลัก</a></li>
@@ -47,7 +47,7 @@
         <main class="content">
             <div class="table-header">
                 <h2 style="margin-right: 10px;">ข้อมูลเอกสาร</h2>
-                <button class="upload-btn">+Upload</button>
+                <button class="upload-btn" (click)="Gotoupload()" >+Upload</button>
             </div>
             <div class="document-table">
 

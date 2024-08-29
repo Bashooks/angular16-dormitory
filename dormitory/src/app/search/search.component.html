@@ -9,7 +9,7 @@
     </div>
     <div class="nav-profile">
         <img src="{{profile}}" alt="profile" class="profile">
-        <p style="padding-right: 5px;">{{userInfo.firstName}} {{userInfo.lastName}}</p>
+        <p *ngIf="isLoggedIn">{{userInfo.firstName}} {{userInfo.lastName}}</p>
         <div class="dropdown">
             <button class="dropbtn">V</button>
             <div class="dropdown-content">

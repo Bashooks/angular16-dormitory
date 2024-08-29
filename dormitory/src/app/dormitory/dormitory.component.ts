@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DormitoryService } from './dormitory.service';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-dormitory',
@@ -18,6 +19,7 @@ export class DormitoryComponent implements OnInit {
   dormitories: any = [];
   location: string | null = null;
   userInfo: any = null;
+  isLoggedIn: boolean = false;
 
   constructor(private router: Router,
     private dormitoryservice: DormitoryService,
@@ -30,7 +32,7 @@ export class DormitoryComponent implements OnInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.location = params['location'] || null; // Get location from query params
-      this. getDormitories()
+      this.getDormitories()
     });
     this.checkToken()
   }
@@ -45,9 +47,19 @@ export class DormitoryComponent implements OnInit {
     });
   }
 
+  logout(){
+    localStorage.clear();
+    window.location.reload()
+  }
+
 
   GotoAdddormitory() {
     this.router.navigate(['/adddormitory'])
+  }
+
+
+  Gotosubmitdocuments(){
+    this.router.navigate(['/submitdocuments'])
   }
 
 
@@ -61,8 +73,11 @@ export class DormitoryComponent implements OnInit {
     const token = localStorage.getItem('userToken'); // Adjust the key name if needed
     if (token) {
       this.userInfo = this.parseJwt(token);
+      this.isLoggedIn = true;
+
     }else{
-      this.router.navigate(['/home'])
+
+      
     }
   }
 

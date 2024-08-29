@@ -25,6 +25,10 @@ export class DocumenttrackingComponent implements OnInit {
     this.checkToken()
   }
 
+  Gotoupload(){
+    this.rout.navigate(['/submitdocuments'])
+  }
+
   checkToken() {
     const token = localStorage.getItem('userToken'); // Adjust the key name if needed
     if (token) {

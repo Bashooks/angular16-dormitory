@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-search',
@@ -41,8 +42,10 @@ export class SearchComponent implements OnInit {
     const token = localStorage.getItem('userToken'); // Adjust the key name if needed
     if (token) {
       this.userInfo = this.parseJwt(token);
+      this.isLoggedIn = true;
     }else{
-      this.router.navigate(['/home'])
+      Swal.fire('warning', 'ยังไม่ได้ลงชื่อเข้าใช้', 'warning');
+      
     }
   }
 

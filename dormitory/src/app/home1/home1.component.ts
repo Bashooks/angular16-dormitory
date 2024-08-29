@@ -4,6 +4,7 @@ import { RegisterDialogComponent } from '../register-dialog/register-dialog.comp
 import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
 import { Router } from '@angular/router';
 import { Home1Service } from './home1.service';
+import Swal from 'sweetalert2';
 
 
 
@@ -67,7 +68,18 @@ export class Home1Component implements OnInit {
   }
 
   Gotodormitory(){
-    this.rout.navigate(['/dormitory'])
+
+      this.rout.navigate(['/dormitory']);
+  
+  }
+
+  selectCity(city: string) {
+    this.selectedCity = city;
+    if (city === 'bangkok') {
+      this.getDormitories();
+    } else if (city === 'chiangmai') {
+      this.getDormitoriesch();
+    }
   }
 
   getDormitories() {

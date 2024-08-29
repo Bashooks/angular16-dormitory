@@ -98,6 +98,9 @@ export class AdddormitoryforuserComponent implements OnInit{
   gotosubmitdocuments(){
     this.router.navigate(['/submitdocuments'])
   }
+  gotohome(){
+    this.router.navigate(['/home'])
+  }
 
 
   checkToken() {
@@ -105,6 +108,8 @@ export class AdddormitoryforuserComponent implements OnInit{
     if (token) {
       this.userInfo = this.parseJwt(token);
     }else{
+      Swal.fire('Failed', 'กรุณาlogin', 'error');
+      
       this.router.navigate(['/home'])
     }
   }

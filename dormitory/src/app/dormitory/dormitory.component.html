@@ -9,16 +9,15 @@
         </div>
         <div class="nav-profile">
             <img [src]="profile" alt="profile" class="profile">
-            <p>{{userInfo.firstName}} {{userInfo.lastName}}</p>
+            <p *ngIf="isLoggedIn">{{userInfo.firstName}} {{userInfo.lastName}}</p>
             <p style="padding-right: 5px;"></p>
             <div class="dropdown">
                 <button class="dropbtn" style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
                 <div class="dropdown-content">
-                    <a href="#"><img [src]="dropdown1" alt="Settings Icon" class="dropdown-icon"> ตั้งค่า</a>
-                    <a href="#"><img [src]="dropdown2" alt="Send Document Icon" class="dropdown-icon"> ส่งเอกสาร</a>
-                    <a href="#"><img [src]="dropdown3" alt="Track Document Icon" class="dropdown-icon">
-                        ติดตามเอกสาร</a>
-                    <a href="#"><img [src]="dropdown4" alt="Logout Icon" class="dropdown-icon"> ออกจากระบบ</a>
+                    <a href="/setting"><img [src]="dropdown1" alt="Settings Icon" style="width: 20px; height: auto;"> ตั้งค่า</a>
+                        <a href="/submitdocuments"><img [src]="dropdown2" alt="Send Document Icon" style="width: 20px; height: auto;"> ส่งเอกสาร</a>
+                        <a href="/documenttracking"><img [src]="dropdown3" alt="Track Document Icon" style="width: 20px; height: auto;">ติดตามเอกสาร</a>
+                        <a href="#" (click)="logout()"><img [src]="dropdown4" alt="Logout Icon" style="width: 20px; height: auto;"> ออกจากระบบ</a>
                 </div>
             </div>
         </div>
@@ -39,11 +38,11 @@
             <button class="btn-add-dormitory" (click)="GotoAdddormitory()">เพิ่มหอพัก</button>
         </div>
     </div>
-    <div *ngFor="let dorm of dormitories" class="dormitory-card">
+    <div *ngFor="let dorm of dormitories" class="dormitory-card" (click)="selectRoom(dorm.id)">
         <div class="dormitory-image">
             <img [src]="dorm.imageUrls[0]" alt="Dormitory Image" />
         </div>
-        <div class="dormitory-info">
+        <div class="dormitory-info" >
 
             <div style="display: flex; align-items: center; justify-content: space-between;">
 
@@ -63,7 +62,7 @@
                 <p class="location">{{dorm.province}}</p>
                 <div class="dormitory-price">
                     <span>(ไม่รวมภาษีและค่าธรรมเนียม)</span><br>
-                    <button class="book-now-btn" (click)="selectRoom(dorm.id)">เลือกห้อง</button>
+                    <button class="book-now-btn" (click)="Gotosubmitdocuments()">เลือกห้อง</button>
                 </div>
             </div>
         </div>

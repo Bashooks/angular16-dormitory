@@ -27,7 +27,7 @@
 
         </div>
     </div>
-    
+
     <img src="{{header}}" alt="Header Image" class="header-image">
     <div class="search-bar">
         <h1>เราคัดสรรหอพักที่ดีเพื่อความสุขสบายของคุณ</h1>
@@ -37,7 +37,6 @@
                 ค้นหาหอพัก
             </button>
         </div>
-
         <div class="label-input">
             <div class="label-on-input">
                 <label for="district">จังหวัด</label><br>
@@ -63,7 +62,6 @@
                 <button style="flex-wrap: nowrap;" (click)="logDistrict()">ค้นหา</button>
             </div>
         </div>
-
         <h2>Dormitory Web</h2>
     </div>
 
@@ -79,10 +77,10 @@
     </div>
     <div class="btn-content">
         <div class="button-content">
-            <button class="btn2" (click)="getDormitories()" [ngClass]="{'active-btn': selectedCity === 'bangkok'}">กรุงเทพฯ</button>
+            <button class="btn2" (click)="selectCity('bangkok')" [ngClass]="{'active-btn': selectedCity === 'bangkok'}">กรุงเทพฯ</button>
         </div>
         <div class="button-content">
-            <button class="btn2" (click)="getDormitoriesch()" [ngClass]="{'active-btn': selectedCity === 'chiangmai'}">เชียงใหม่</button>
+            <button class="btn2" (click)="selectCity('chiangmai')" [ngClass]="{'active-btn': selectedCity === 'chiangmai'}">เชียงใหม่</button>
         </div>
     </div>
     <div class="card-container">

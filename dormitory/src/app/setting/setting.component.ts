@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { SettingService } from './setting.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-setting',
@@ -34,7 +35,9 @@ export class SettingComponent implements OnInit{
     if (this.userInfo && this.userInfo.id) {
       this.settingService.updatePerson(this.userInfo.id, this.person).subscribe(
         response => {
-          console.log('Update successful:', response);
+          Swal.fire('success', 'บันทึกสำเร็จ!', 'success');
+          localStorage.clear();
+          this.router.navigate(['/home']);
         },
         error => {
           console.error('Error:', error);
@@ -48,14 +51,19 @@ export class SettingComponent implements OnInit{
     window.location.reload();
   }
 
+  gotodormitory(){
+    this.router.navigate(['/dormitory'])
+  }
+
   checkToken() {
     const token = localStorage.getItem('userToken'); // ปรับชื่อคีย์ถ้าจำเป็น
     if (token) {
       this.userInfo = this.parseJwt(token);
       this.populateForm();
-      console.log(this.person);
+      console.log(this.userInfo);
       
     } else {
+      Swal.fire('login', 'กรุณาlogin', 'error');
       this.router.navigate(['/home']);
     }
   }
