@@ -1,6 +1,6 @@
 <div class="header">
     <div class="head-web">
-        <img src="{{logo}}" alt="logo" class="logo">
+        <img src="assets/img/logoimage.png" alt="logo" class="logo">
         <div class="nameweb-container">
             <div class="nameweb-h">
                 <h1 class="nameweb">Dormitory</h1>
@@ -11,16 +11,16 @@
                 <p>ค้นหา</p>
                 <button class="btn-01" *ngIf="!isLoggedIn" (click)="openLoginDialog()">เข้าสู่ระบบ</button>
                 <button class="btn-02" *ngIf="!isLoggedIn" (click)="openRegisterDialog()">ลงทะเบียน</button>
-                <img *ngIf="isLoggedIn" [src]="profile" alt="profile" class="profile"
+                <img *ngIf="isLoggedIn" src="assets/img/profileimage.png" alt="profile" class="profile"
                     style="height: 40px; width: auto;">
                 <p *ngIf="isLoggedIn">{{userInfo.firstName}} {{userInfo.lastName}}</p>
                 <div *ngIf="isLoggedIn" class="dropdown">
                     <button class="dropbtn" style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
                     <div class="dropdown-content">
-                        <a href="/setting"><img [src]="dropdown1" alt="Settings Icon" style="width: 20px; height: auto;"> ตั้งค่า</a>
-                        <a href="/submitdocuments"><img [src]="dropdown2" alt="Send Document Icon" style="width: 20px; height: auto;"> ส่งเอกสาร</a>
-                        <a href="/documenttracking"><img [src]="dropdown3" alt="Track Document Icon" style="width: 20px; height: auto;">ติดตามเอกสาร</a>
-                        <a href="#" (click)="logout()"><img [src]="dropdown4" alt="Logout Icon" style="width: 20px; height: auto;"> ออกจากระบบ</a>
+                        <a href="/setting"><img src="assets/img/navdow/settingimage.png" alt="Settings Icon" style="width: 20px; height: auto;"> ตั้งค่า</a>
+                        <a href="/submitdocuments"><img src="assets/img/navdow/sendimage.png" alt="Send Document Icon" style="width: 20px; height: auto;"> ส่งเอกสาร</a>
+                        <a href="/documenttracking"><img src="assets/img/navdow/followimage.png" alt="Track Document Icon" style="width: 20px; height: auto;">ติดตามเอกสาร</a>
+                        <a href="#" (click)="logout()"><img src="assets/img/navdow/logoutimage.png" alt="Logout Icon" style="width: 20px; height: auto;"> ออกจากระบบ</a>
                     </div>
                 </div>
             </div>
@@ -28,12 +28,12 @@
         </div>
     </div>
 
-    <img src="{{header}}" alt="Header Image" class="header-image">
+    <img src="assets/img/homeimage.png" alt="Header Image" class="header-image">
     <div class="search-bar">
         <h1>เราคัดสรรหอพักที่ดีเพื่อความสุขสบายของคุณ</h1>
         <div class="icon-input">
             <button class="btn-03" (click)="GotoSearch()">
-                <img src="{{iconimg5}}" alt="Icon Image" class="icon-image1">
+                <img src="assets/img/logoimage.png" alt="Icon Image" class="icon-image1">
                 ค้นหาหอพัก
             </button>
         </div>
@@ -42,14 +42,14 @@
                 <label for="district">จังหวัด</label><br>
                 <div class="input-container">
                     <input id="district" class="input1" type="text" placeholder="จังหวัด" [(ngModel)]="district">
-                    <img src="{{iconimg1}}" alt="Icon Image" class="icon-image">
+                    <img src="assets/img/locationimage.png" alt="Icon Image" class="icon-image">
                 </div>
             </div>
             <div>
                 <label for="district">วันที่เข้าพัก</label><br>
                 <div class="input-container">
                     <input class="input3" type="text" placeholder="วันที่เข้าพัก">
-                    <img src="{{iconimg2}}" alt="Icon Image" class="icon-image">
+                    <img src="assets/img/caranderimage.png" alt="Icon Image" class="icon-image">
                 </div>
 
             </div>
@@ -57,7 +57,7 @@
                 <label for="district" >ผู้เข้าพัก</label><br>
                 <div class="input-container" style="flex-wrap: nowrap;">
                     <input class="input3" type="text" placeholder="ผู้เข้าพัก">
-                    <img src="{{iconimg3}}" alt="Icon Image" class="icon-image">
+                    <img src="assets/img/customerimage.png" alt="Icon Image" class="icon-image">
                 </div>
                 <button style="flex-wrap: nowrap;" (click)="logDistrict()">ค้นหา</button>
             </div>
@@ -70,7 +70,7 @@
     <div>
         <div class="head-content">
             <h1>หอพักเเนะนำ!</h1>
-            <img src="{{iconimg4}}" alt="iconimg4">
+            <img src="assets/img/skyimage.png" alt="iconimg4">
             <h1 class="arrow" (click)="Gotodormitory()">&gt;</h1>
         </div>
         <h2 style="color: #A3A0A0;">หอพักแนะนำที่สุดแสนสบาย บรรยากาศที่ดีเหมาะเเก่การพักของคุณ</h2>
@@ -97,7 +97,7 @@
     <div>
         <div class="head-content">
             <h1>หอพักยอดนิยม!</h1>
-            <img src="{{iconimg4}}" alt="iconimg4">
+            <img src="assets/img/skyimage.png" alt="iconimg4">
             <h1 class="arrow" (click)="Gotodormitory()">&gt;</h1>
         </div>
         <h2 style="color: #A3A0A0;">หอพักยอดนิยมที่มีคนเข้าใช้และการันตีว่าสบายที่สุด</h2>
@@ -116,7 +116,7 @@
     </div>
 </div>
 <div class="footer">
-    <img src="{{footerimage}}" alt="Footer Image" class="footer-image">
+    <img src="assets/img/footerimage.png" alt="Footer Image" class="footer-image">
     <div class="footer-text-container">
         <h1 class="footer-text">เพื่อการค้นหาที่พักสุดแสนสบายของคุณ</h1>
         <h1 class="footer-text">พบกันได้ที่</h1>

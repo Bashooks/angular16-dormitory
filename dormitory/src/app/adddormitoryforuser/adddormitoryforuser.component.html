@@ -1,26 +1,26 @@
 <nav class="nav">
     <div class="nav-name">
-        <img [src]="logo" alt="logo" class="logo">
+        <img src="assets/img/logoimage.png" alt="logo" class="logo">
         <div (click)="gotohome()">
             <h1 class="nameweb1">Dormitory</h1>
             <h1 class="nameweb2">Web</h1>
         </div>
     </div>
     <div class="nav-profile">
-        <img [src]="profile" alt="profile" class="profile">
+        <img src="assets/img/profileimage.png" alt="profile" class="profile">
         <p>{{userInfo.firstName}} {{userInfo.lastName}}</p>
         <p style="padding-right: 5px;"></p>
         <div class="dropdown">
             <button class="dropbtn"
                 style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
             <div class="dropdown-content">
-                <a href="/setting"><img [src]="dropdown1" alt="Settings Icon" style="width: 20px; height: auto;">
+                <a href="/setting"><img src="assets/img/navdow/settingimage.png" alt="Settings Icon" style="width: 20px; height: auto;">
                     ตั้งค่า</a>
-                <a href="/submitdocuments"><img [src]="dropdown2" alt="Send Document Icon"
+                <a href="/submitdocuments"><img src="assets/img/navdow/sendimage.png" alt="Send Document Icon"
                         style="width: 20px; height: auto;"> ส่งเอกสาร</a>
-                <a href="/documenttracking"><img [src]="dropdown3" alt="Track Document Icon"
+                <a href="/documenttracking"><img src="assets/img/navdow/followimage.png" alt="Track Document Icon"
                         style="width: 20px; height: auto;">ติดตามเอกสาร</a>
-                <a href="#" (click)="logout()"><img [src]="dropdown4" alt="Logout Icon"
+                <a href="#" (click)="logout()"><img src="assets/img/navdow/logoutimage.png" alt="Logout Icon"
                         style="width: 20px; height: auto;"> ออกจากระบบ</a>
             </div>
         </div>
@@ -52,43 +52,43 @@
 <form [formGroup]="dormitoryForm" (ngSubmit)="saveDormitory()">
     <div class="label-input">
         <div class="set-icon">
-            <img [src]="logo" alt="room-info" class="room-info">
+            <img src="assets/img/logoimage.png" alt="room-info" class="room-info">
             <label for="room-info"><strong>ชื่อหอพัก</strong></label><br>
             <textarea id="room-info" rows="4" cols="50" placeholder="" class="room-info"
                 formControlName="name"></textarea>
         </div>
         <div class="set-icon">
-            <img [src]="logo" alt="subdistrict-info" class="subdistrict-info">
+            <img src="assets/img/logoimage.png" alt="subdistrict-info" class="subdistrict-info">
             <label for="subdistrict"><strong>ตำบล</strong></label><br>
             <textarea id="subdistrict" placeholder="" class="subdistrict" formControlName="subDistrict"></textarea>
         </div>
         <div class="set-icon">
-            <img [src]="logo" alt="district-info" class="district-info">
+            <img src="assets/img/logoimage.png" alt="district-info" class="district-info">
             <label for="district"><strong>อำเภอ</strong></label><br>
             <textarea id="district" placeholder="" class="district" formControlName="district"></textarea>
         </div>
         <div class="set-icon">
-            <img [src]="logo" alt="province-info" class="province-info">
+            <img src="assets/img/logoimage.png" alt="province-info" class="province-info">
             <label for="province"><strong>จังหวัด</strong></label><br>
             <textarea id="province" placeholder="" class="province" formControlName="province"></textarea>
         </div>
         <div class="set-icon">
-            <img [src]="logo" alt="price-info" class="price-info">
+            <img src="assets/img/logoimage.png" alt="price-info" class="price-info">
             <label for="price"><strong>ราคา</strong></label><br>
             <textarea id="price" placeholder="" class="price" formControlName="price"></textarea>
         </div>
         <div class="set-icon">
-            <img [src]="logo" alt="detaildormitory" class="detaildormitory">
+            <img src="assets/img/logoimage.png" alt="detaildormitory" class="detaildormitory">
             <label for="detaildormitory"><strong>รายละเอียดหอพัก</strong></label><br>
             <textarea id="detaildormitory" rows="4" cols="50" placeholder="" formControlName="description"></textarea>
         </div>
         <div class="set-icon">
-            <img [src]="icon1" alt="furniture-info" class="furniture-info">
+            <img src="assets/img/farmigerimage.png" alt="furniture-info" class="furniture-info">
             <label for="furniture-info"><strong>เฟอร์นิเจอร์</strong></label><br>
             <textarea id="furniture-info" rows="4" cols="50" placeholder="" formControlName="furniture"></textarea>
         </div>
         <div class="set-icon">
-            <img [src]="icon2" alt="contact-info" class="contact-info">
+            <img src="assets/img/contackimage.png" alt="contact-info" class="contact-info">
             <label for="contact-info"><strong>ช่องทางติดต่อ</strong></label><br>
             <textarea id="contact-info" rows="4" cols="50" placeholder="" formControlName="contact"></textarea>
         </div>

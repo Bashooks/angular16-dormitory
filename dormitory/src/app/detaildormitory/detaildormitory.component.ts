@@ -30,6 +30,11 @@ export class DetaildormitoryComponent {
     });
   }
 
+  logout(){
+    localStorage.clear();
+    window.location.reload()
+  }
+
 
 
 
