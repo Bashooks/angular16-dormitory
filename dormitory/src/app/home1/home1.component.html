@@ -1,4 +1,4 @@
-<div class="header">
+<!-- <div class="header">
     <div class="head-web">
         <img src="assets/img/logoimage.png" alt="logo" class="logo">
         <div class="nameweb-container">
@@ -6,67 +6,57 @@
                 <h1 class="nameweb">Dormitory</h1>
                 <h1 class="nameweb2">Web</h1>
             </div>
-
             <div class="btn-reg">
                 <p>ค้นหา</p>
                 <button class="btn-01" *ngIf="!isLoggedIn" (click)="openLoginDialog()">เข้าสู่ระบบ</button>
                 <button class="btn-02" *ngIf="!isLoggedIn" (click)="openRegisterDialog()">ลงทะเบียน</button>
-                <img *ngIf="isLoggedIn" src="assets/img/profileimage.png" alt="profile" class="profile"
-                    style="height: 40px; width: auto;">
+                <img *ngIf="isLoggedIn" src="assets/img/profileimage.png" alt="profile" class="profile" style="height: 40px; width: auto;">
                 <p *ngIf="isLoggedIn">{{userInfo.firstName}} {{userInfo.lastName}}</p>
                 <div *ngIf="isLoggedIn" class="dropdown">
                     <button class="dropbtn" style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
                     <div class="dropdown-content">
                         <a href="/setting"><img src="assets/img/navdow/settingimage.png" alt="Settings Icon" style="width: 20px; height: auto;"> ตั้งค่า</a>
                         <a href="/submitdocuments"><img src="assets/img/navdow/sendimage.png" alt="Send Document Icon" style="width: 20px; height: auto;"> ส่งเอกสาร</a>
-                        <a href="/documenttracking"><img src="assets/img/navdow/followimage.png" alt="Track Document Icon" style="width: 20px; height: auto;">ติดตามเอกสาร</a>
+                        <a href="/documenttracking"><img src="assets/img/navdow/followimage.png" alt="Track Document Icon" style="width: 20px; height: auto;"> ติดตามเอกสาร</a>
                         <a href="#" (click)="logout()"><img src="assets/img/navdow/logoutimage.png" alt="Logout Icon" style="width: 20px; height: auto;"> ออกจากระบบ</a>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
+
     <img src="assets/img/homeimage.png" alt="Header Image" class="header-image">
+
+
     <div class="search-bar">
         <h1>เราคัดสรรหอพักที่ดีเพื่อความสุขสบายของคุณ</h1>
         <div class="icon-input">
             <button class="btn-03" (click)="GotoSearch()">
-                <img src="assets/img/logoimage.png" alt="Icon Image" class="icon-image1">
-                ค้นหาหอพัก
+                <img src="assets/img/logoimage.png" alt="Icon Image" class="icon-image1"> ค้นหาหอพัก
             </button>
         </div>
         <div class="label-input">
             <div class="label-on-input">
                 <label for="district">จังหวัด</label><br>
                 <div class="input-container">
-                    <input id="district" class="input1" type="text" placeholder="จังหวัด" [(ngModel)]="district">
+                    <select id="district" class="input1" [(ngModel)]="district">
+                        <option value="" disabled selected>เลือกจังหวัด</option>
+                        <option value="กรุงเทพฯ">กรุงเทพฯ</option>
+                        <option value="เชียงใหม่">เชียงใหม่</option>
+                        <option value="ขอนแก่น">ขอนแก่น</option>
+                        <option value="ชลบุรี">ชลบุรี</option>
+
+                    </select>
                     <img src="assets/img/locationimage.png" alt="Icon Image" class="icon-image">
                 </div>
-            </div>
-            <div>
-                <label for="district">วันที่เข้าพัก</label><br>
-                <div class="input-container">
-                    <input class="input3" type="text" placeholder="วันที่เข้าพัก">
-                    <img src="assets/img/caranderimage.png" alt="Icon Image" class="icon-image">
-                </div>
-
-            </div>
-            <div style="flex-wrap: nowrap;">
-                <label for="district" >ผู้เข้าพัก</label><br>
-                <div class="input-container" style="flex-wrap: nowrap;">
-                    <input class="input3" type="text" placeholder="ผู้เข้าพัก">
-                    <img src="assets/img/customerimage.png" alt="Icon Image" class="icon-image">
-                </div>
-                <button style="flex-wrap: nowrap;" (click)="logDistrict()">ค้นหา</button>
             </div>
         </div>
         <h2>Dormitory Web</h2>
     </div>
-
 </div>
 <div class="content">
+ 
     <div>
         <div class="head-content">
             <h1>หอพักเเนะนำ!</h1>
@@ -75,6 +65,8 @@
         </div>
         <h2 style="color: #A3A0A0;">หอพักแนะนำที่สุดแสนสบาย บรรยากาศที่ดีเหมาะเเก่การพักของคุณ</h2>
     </div>
+
+
     <div class="btn-content">
         <div class="button-content">
             <button class="btn2" (click)="selectCity('bangkok')" [ngClass]="{'active-btn': selectedCity === 'bangkok'}">กรุงเทพฯ</button>
@@ -83,6 +75,8 @@
             <button class="btn2" (click)="selectCity('chiangmai')" [ngClass]="{'active-btn': selectedCity === 'chiangmai'}">เชียงใหม่</button>
         </div>
     </div>
+
+  
     <div class="card-container">
         <div class="card" *ngFor="let dorm of dormitoriesBKK">
             <img [src]="dorm.imageUrls[0]" [alt]="dorm.title" class="card-image">
@@ -93,7 +87,8 @@
             </div>
         </div>
     </div>
-    <br>
+
+   
     <div>
         <div class="head-content">
             <h1>หอพักยอดนิยม!</h1>
@@ -103,7 +98,6 @@
         <h2 style="color: #A3A0A0;">หอพักยอดนิยมที่มีคนเข้าใช้และการันตีว่าสบายที่สุด</h2>
     </div>
 
-    <br>
     <div class="card-container">
         <div class="card" *ngFor="let dorm of dormitories">
             <img [src]="dorm.imageUrls[0]" [alt]="dorm.title" class="card-image">
@@ -115,6 +109,7 @@
         </div>
     </div>
 </div>
+
 <div class="footer">
     <img src="assets/img/footerimage.png" alt="Footer Image" class="footer-image">
     <div class="footer-text-container">
@@ -124,4 +119,41 @@
     <div class="footer-text-end">
         <h1 class="footer-text">Copyright © 2024 Dormitory . All rights reserved</h1>
     </div>
+</div> -->
+<div class="container">
+    <div class="topleft">
+        <div class="nameweb">
+            <div class="icon-image">
+                <img src="assets/img/logoimage.png">
+            </div>
+            <div>
+                <h1 class="nameweb1">Dormitory</h1>
+                <h1 class="nameweb2">Web</h1>
+            </div>
+        </div>
+    </div>
+    <div class="topright"><button>
+        ค้นหาหอพัก
+    </button></div>
+    <img src="assets/img/homeimage.png">
+    <div class="center">
+        <h1 class="with-lines">เราคัดสรรหอพักที่ดีเพื่อความสุขสบายของคุณ</h1>
+        <div class="search">
+            
+        </div>
+        <label for="district" class="select-label">
+            <img src="assets/img/logoimage.png" alt="Icon" class="label-icon">
+            <select id="district" class="dropdows" [(ngModel)]="district">
+                <option value="" disabled selected>เลือกจังหวัด</option>
+                <option value="กรุงเทพฯ">กรุงเทพฯ</option>
+                <option value="เชียงใหม่">เชียงใหม่</option>
+                <option value="ขอนแก่น">ขอนแก่น</option>
+                <option value="ชลบุรี">ชลบุรี</option>
+            </select>
+        </label>
+        <h3 class="with-lines2">Dormitory</h3>
+    </div>
+</div>
+<div class="container2">
+
 </div>

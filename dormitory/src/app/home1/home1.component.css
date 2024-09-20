@@ -1,452 +1,140 @@
-/* Reset margin and padding */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Header image and search bar positioning */
-.header {
+.container {
     position: relative;
-    text-align: center;
-    color: white;
     z-index: 1;
+  
 }
 
-.btn-reg p {
-    margin-top: 10px;
-    margin-right: 10px;
-}
-
-.icon-input {
-    display: flex;
-    /* This container uses flex for potential other elements */
-    align-items: center;
-    margin-left: 17%;
-    /* Align items vertically centered */
-}
-
-.btn-03 {
-    display: flex;
-    /* Use flexbox to align icon and text within the button */
-    align-items: center;
-    /* Vertically center the icon and text */
-    padding: 10px 20px;
-    background-color: #ffffff;
-    /* Button background color */
-    color: rgb(0, 0, 0);
-    /* Button text color */
-    border: none;
-    border-radius: 20px;
-    /* Rounded corners for the button */
-    cursor: pointer;
-    /* Pointer cursor on hover */
-}
-
-.btn-03 img {
-    /* Space between icon and text */
-    margin-right: 5px;
-    width: 20px;
-    /* Icon width */
-    height: auto;
-    /* Maintain aspect ratio of the icon */
-}
-
-
-.header-image,
-.footer-image {
+.center {
+    position: absolute;
+    top: 25%;
     width: 100%;
-    height: 90vh;
-    object-fit: cover;
-    display: block;
-    position: relative;
-    z-index: 0;
+    text-align: center;
+    font-size: 18px;
 }
-.active-btn {
-   color: rgb(25, 0, 255);
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.topleft {
+    position: absolute;
+    top: 8px;
+    left: 16px;
+    font-size: 18px;
   }
 
-.search-bar {
-    position: absolute;
-    top: 15vh;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    padding: 20px;
-    z-index: 1;
-}
-
-
-.head-web .nameweb-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    /* ทำให้ใช้พื้นที่ทั้งบรรทัด */
-    position: relative;
-}
-
-/* Use flexbox to arrange buttons */
-
-.head-web .btn-reg {
-    position: absolute;
-    display: flex;
-    gap: 10px;
-    top: 0;
-    right: 0;
-    margin: 20px;
-    /* เพิ่ม margin ตามต้องการเพื่อความสวยงาม */
-}
-
-.head-web button.btn-02 {
-    border-radius: 10px;
-    height: 40px;
-    background-color: #1F496B;
-    border: none;
-    color: white;
-
-    padding: 5px 25px;
-}
-
-.head-web button.btn-01 {
-    border-radius: 10px;
-    height: 40px;
-    background-color: #ffffff00;
-    border-color: white;
-    color: white;
-
-    padding: 5px 25px;
-}
-
-.head-web {
-    position: absolute;
-    /* Ensure it is positioned relative to .header */
-    display: flex;
-    justify-content: space-between;
-    left: 20px;
-    top: 20px;
-    width: calc(100% - 40px);
-    /* Adjust for margin on both sides */
-    z-index: 2;
-    /* Ensure it is above the header image */
-}
-
-
-.card-image {
-    width:100%;
-    height: 80%;
-    object-fit: cover;
-    display: block;
-}
-
-.head-web img {
-    margin-right: 10px;
-    height: 78px;
-    width: 78;
-    z-index: 1;
-    /* เว้นระยะห่างระหว่างรูปภาพกับ h1 */
-}
-
-.head-web h1.nameweb {
-    position: relative;
-    z-index: 1;
-    font-family: Inter;
+.icon-image{
+    width: 80px;    
+    height: 80px;
     margin-left: 20px;
-    font-size: 38px;
-    font-style: italic;
-    font-weight: 600;
-    line-height: 45.99px;
-    text-align: left;
-    z-index: 1;
-    text-shadow:
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
-
+    margin-top: 20px;
 }
-
-.head-web h1.nameweb2 {
-    position: relative;
-    font-family: Inter;
-    margin-left: 130px;
-    font-size: 38px;
-    font-style: italic;
-    font-weight: 600;
-    line-height: 45.99px;
-    text-align: right;
-    text-shadow:
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
-    z-index: 1;
-
-}
-
-
-
-.search-bar h1 {
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #ffffff;
-    padding: 20px 0;
-    margin-bottom: 10px;
-    font-size: 2em;
-    color: white;
-}
-
-.search-bar h2 {
-    padding: 20px 0;
-    margin-top: 5%;
-    font-size: 1.5em;
-    color: white;
-}
-
-.label-input {
-    display: flex;
-    flex-wrap: nowrap;
-    margin-left: 20%;
-    text-align: left;
-    font-family: Inter;
-    font-size: 11px;
-    font-style: italic;
-    font-weight: 600;
-    line-height: 45.99px;
-    text-shadow:
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
-
-}
-
-.btn-content {
-    display: flex;
-    align-items: center;
-}
-
-.button-content {
-    padding: 10px;
-}
-
-.button-content button {
-    width: 120%;
-    padding: 10px;
-    border-radius: 15px;
-}
-
-.button-content button.btn1 {
-    background-color: #1F496B;
-    border-color: #1F496B;
-}
-
-.button-content button.btn2 {
-    background-color: #85C1F040;
-    border-color: #85C1F040;
-}
-
-.input1 {
-    width: 100%;
-    padding: 10px;
-    margin: 0;
-    height: 40px;
-    margin-right: 0px;
-    border-radius: 5px 0px 0px 5px;
-    border: none;
-    padding-left: 30px
-}
-
-
-.input3 {
-    width: 100%;
-    padding: 10px;
-    margin: 0;
-    margin-right: 0px;
-    border: none;
-    height: 40px;
-    padding-left: 35px
-}
-
-.label-input button {
-    height: 40px;
-    width: 70px;
-    font-size: 1em;
-    border-radius: 0px 5px 5px 0px;
-    border: none;
-    background-color: orange;
-    color: white;
-    cursor: pointer;
-}
-
-
-/* Content positioning */
-.content {
-    position: relative;
-    top: -50px;
-
-    background: rgb(255, 255, 255);
-    border-radius: 20px;
-    /* This applies the radius to all four corners */
-    padding: 20px;
-    z-index: 3;
-    margin-bottom: -100px;
-    /* Ensure padding and border are included in the element's width and height */
-}
-
-
-/* Card container styling */
-.card-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    /* 4 equal columns */
-    gap: 20px;
-    /* Space between cards */
-    padding: 30px;
-}
-
-.card {
-    background-color: white;
-    height: 600px;
-    /* Adjust the height as needed */
-
+.dropdows{
+    width:1000px;
+    height: 50px;
     border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-   
+    padding-left: 40px;
 }
-.card-content{
-    padding-left: 20px;
-}
-
-.input-container {
-    position: relative;
-    display: inline-block;
-}
-
-.icon-image {
+.label-icon {
     position: absolute;
     left: 10px;
-    ;
-    /* Adjust the position as needed */
     top: 50%;
     transform: translateY(-50%);
-    height: 20px;
-    /* Adjust the size as needed */
-    width: auto;
+    width: 20px;
+    height: auto;
+    pointer-events: none; /* Prevent icon from blocking dropdown interaction */
 }
-
-.head-content {
-    display: flex;
-    align-items: center;
-    /* Vertically align items */
-    position: relative;
-    /* To position the arrow */
-    padding-right: 20px;
-    cursor: pointer;
-    /* Add padding if needed for spacing */
-}
-
-.head-content h1 {
-    margin: 0;
-    /* Remove default margin */
-    font-size: 2em;
-    /* Adjust font size as needed */
-}
-
-.head-content img {
-    height: 40px;
-    /* Adjust the height of the image as needed */
-    width: auto;
-    /* Maintain aspect ratio */
-}
-
-.head-content .arrow {
-    position: absolute;
-    right: 0;
-    /* Align to the right edge of the container */
-    margin: 0;
-    /* Remove default margin */
-    font-size: 2em;
-    /* Adjust font size as needed */
-}
-
-.footer {
-    position: relative;
-    /* Set position relative for the footer container */
-}
-
-.footer-text-container {
-    position: absolute;
-    /* Position the container absolutely within the footer */
-    bottom: 40%;
-    /* Adjust vertical position from the bottom */
-    left: 50%;
-    /* Center horizontally */
-    transform: translateX(-50%);
-    /* Center text horizontally */
-    text-align: center;
-    /* Center-align the text within the container */
-    color: white;
-    /* Adjust text color for contrast */
-    z-index: 1;
-    /* Ensure text appears above the image */
-}
-
-
-.footer-text {
-    margin: 0;
-    /* Remove default margin */
-    font-size: 1.5em;
-    /* Adjust font size */
-    /* Optional: Add a background color with transparency */
-    padding: 10px;
-    /* Add padding around text */
-    border-radius: 5px;
-    /* Optional: Add rounded corners */
-}
-
-.footer-text-end {
-    background-color: #1E3544;
-    color: white;
-    font-size: 1em;
-    text-align: center;
-}
-
-.dropdown {
+.select-label {
     position: relative;
     display: inline-block;
-
+    font-size: 16px;
+}
+.nameweb{
+    display: flex;
+    
+}
+.nameweb1, .nameweb2 {
+    font-size: 40px;
+    line-height: 0; 
+    margin-top: 45px;
+    margin-left: 10px;
+    font-family: Inter;
+    font-style: italic;
+    color: white;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    /* ปรับระยะห่างระหว่างบรรทัดให้น้อยลง */
+}
+.nameweb2 {
+    margin-left: 140px;
 }
 
-.dropdown-content {
-    display: none;
+.with-lines {
+    position: relative;
+    text-align: center;
+    color: white;
+    font-family: Inter;
+}
+
+.with-lines::before,
+.with-lines::after {
+    content: "";
     position: absolute;
-    right: 0;
-    background-color: #1B66AB;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    height: 0.5px;
+    background-color: #ffffff;
+    width: 1000px;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.with-lines::after {
+    top: auto;
+    bottom: -10px;
+}
+
+.search button{
+    width: 150px;
+    height: 50px;
+    border-radius: 40px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    border-color: #ffffff;
    
 }
-.dropbtn{
-    margin-top: 10px;
+
+.container2{
+    position: relative; /* หรือ absolute ถ้าต้องการวางตำแหน่งคงที่ */
+    z-index: 2; /* ค่า z-index สูงกว่า container เพื่อให้ทับได้ */
+    margin-top: -10%;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
 }
 
-.dropdown-content a {
+.with-lines2{
+    font-size: 40px;
+    padding-top: 200px;
+    font-family: Inter;
+    font-style: italic;
     color: white;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-   text-align: left;
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
 }
 
-.dropdown-content a:hover {
-    background-color: #85a0b9
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #1B66AB;
-}
+.topright {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+  }
 
