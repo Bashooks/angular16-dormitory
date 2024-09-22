@@ -29,14 +29,17 @@ export class Home1Component implements OnInit {
   dropdown4="https://s3-alpha-sig.figma.com/img/4204/95ec/542bd335d987091c9dd01e6d358bdacc?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=cFqu6X9yQ~IT~-kh-dPQxCIIBAZslB6CucB0W1pwWTEIipnx8UklWICSrggOwVuvY29ofek865qj9K9uFmXVZMEuFstCNTdzZjz-MDpfgXy-4vJRRhgOE4bPkj3tkJe~DiLNaD9bb5Ytw67lhro3sx2aeO-fhtxw0Ec7eJJorTrkW-Y6-GHWPVQggZ6izf7IfNlyuZTip75Vp-QKLAeoWVnVwsqHbU2IzQu5ivcEngwa-0nSa9a8tXjzTznB6yJcq9PSE-L2NwL5pCPgf0EGeD9mYkFgsIvZ9It3yID5~5wuG-QDFID099SWmJJSjGoN-IQffUovAN-3u1RFfJGA7Q__"
 
 
-
-
+  filteredDormitories: any[] = [];
+  provinces: any[] = [];
   dormitoriesBKK: any = [];
   dormitories: any = [];
   isLoggedIn: boolean = false;
   userInfo: any = null;
   selectedCity: string = '';
   district: string = '';
+  selectedProvince: string = '';
+
+  
 
   constructor(
     private rout: Router,
@@ -49,6 +52,7 @@ export class Home1Component implements OnInit {
     this.getDormitories();
     this.getAllDormitories();
     this.checkToken()
+    
   }
 
   openRegisterDialog() {
@@ -86,13 +90,27 @@ export class Home1Component implements OnInit {
     this.homeservice.getAllDormitories().subscribe(
       (data: any[]) => {
         this.dormitoriesBKK = null
-        this.dormitoriesBKK = data.filter(dorm => dorm.province === 'กรุงเทพฯ').slice(0, 4);
+        this.dormitoriesBKK = data.filter(dorm => dorm.province === 'กรุงเทพฯ').slice(0, 5);
        
       },
       (error) => {
         console.error('Error fetching dormitories', error);
       }
     );
+  }
+  filterDormitoriesByProvince() {
+  
+  this.homeservice.getAllDormitories().subscribe(
+    (data: any[]) => {
+      this.dormitories = data.filter(dorm => dorm.province != 'กรุงเทพฯ' && dorm.province != 'เชียงใหม่' && dorm.province == this.selectedProvince ).slice(0, 5);
+      
+    },
+    (error) => {
+      console.error('Error fetching dormitories', error);
+    }
+  );
+  
+    
   }
 
  
@@ -112,7 +130,8 @@ export class Home1Component implements OnInit {
   getAllDormitories() {
     this.homeservice.getAllDormitories().subscribe(
       (data: any[]) => {
-        this.dormitories = data.filter(dorm => dorm.province != 'กรุงเทพฯ').slice(0, 4);
+        this.dormitories = data.filter(dorm => dorm.province != 'กรุงเทพฯ' && dorm.province != 'เชียงใหม่').slice(0, 5);
+        this.getProvinces();
         // ควรจะเป็นเรทติ้งมากที่สุดค่อยมาแก้
     
       },
@@ -122,18 +141,18 @@ export class Home1Component implements OnInit {
     );
   }
 
-  logDistrict() {
-    this.homeservice.getAllDormitories().subscribe(
-      (data: any[]) => {
-        this.dormitories = null
-        this.dormitories = data.filter(dorm => dorm.province === this.district).slice(0, 4);
+  // logDistrict() {
+  //   this.homeservice.getAllDormitories().subscribe(
+  //     (data: any[]) => {
+  //       this.dormitories = null
+  //       this.dormitories = data.filter(dorm => dorm.province === this.district).slice(0, 4);
         
-      },
-      (error) => {
-        console.error('Error fetching dormitories', error);
-      }
-    );
-  }
+  //     },
+  //     (error) => {
+  //       console.error('Error fetching dormitories', error);
+  //     }
+  //   );
+  // }
   
 
   checkToken() {
@@ -163,6 +182,19 @@ export class Home1Component implements OnInit {
     localStorage.clear();
     window.location.reload()
   }
+
+  getProvinces() {
+    this.homeservice.getProvinces().subscribe(
+      (data: any[]) => {
+        this.provinces = data;
+      },
+      (error) => {
+        console.error('Error fetching provinces', error);
+      }
+    );
+  }
+
+  
 
 
   

@@ -1,7 +1,7 @@
 .container {
     position: relative;
     z-index: 1;
-  
+
 }
 
 .center {
@@ -22,20 +22,22 @@ img {
     top: 8px;
     left: 16px;
     font-size: 18px;
-  }
+}
 
-.icon-image{
-    width: 80px;    
+.icon-image {
+    width: 80px;
     height: 80px;
     margin-left: 20px;
     margin-top: 20px;
 }
-.dropdows{
-    width:1000px;
+
+.dropdows {
+    width: 1000px;
     height: 50px;
     border-radius: 10px;
     padding-left: 40px;
 }
+
 .label-icon {
     position: absolute;
     left: 10px;
@@ -43,20 +45,25 @@ img {
     transform: translateY(-50%);
     width: 20px;
     height: auto;
-    pointer-events: none; /* Prevent icon from blocking dropdown interaction */
+    pointer-events: none;
+    /* Prevent icon from blocking dropdown interaction */
 }
+
 .select-label {
     position: relative;
     display: inline-block;
     font-size: 16px;
 }
-.nameweb{
+
+.nameweb {
     display: flex;
-    
+
 }
-.nameweb1, .nameweb2 {
+
+.nameweb1,
+.nameweb2 {
     font-size: 40px;
-    line-height: 0; 
+    line-height: 0;
     margin-top: 45px;
     margin-left: 10px;
     font-family: Inter;
@@ -69,6 +76,7 @@ img {
         1px 1px 0 #000;
     /* ปรับระยะห่างระหว่างบรรทัดให้น้อยลง */
 }
+
 .nameweb2 {
     margin-left: 140px;
 }
@@ -97,30 +105,83 @@ img {
     bottom: -10px;
 }
 
-.search button{
+.searchbutton {
     width: 150px;
     height: 50px;
     border-radius: 40px;
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
+    background-color: #ffffff00;
+    color: rgb(255, 255, 255);
     font-size: 20px;
-    border-color: #ffffff;
-   
+    border-color: #ffffff00;
 }
 
-.container2{
-    position: relative; /* หรือ absolute ถ้าต้องการวางตำแหน่งคงที่ */
-    z-index: 2; /* ค่า z-index สูงกว่า container เพื่อให้ทับได้ */
+.searchbutton:hover {
+    width: 150px;
+    height: 50px;
+    border-radius: 40px;
+    background-color: #ffffff00;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    border-color: #ffffff00;
+}
+
+.loginbutton {
+    border-radius: 20px;
+    width: 150px;
+    height: 50px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    background-color: #ffffff00;
+    border-color: rgb(255, 255, 255)
+}
+
+.loginbutton:hover {
+    border-radius: 20px;
+    width: 150px;
+    height: 50px;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    background-color: #ffffff;
+    border-color: rgb(255, 255, 255)
+}
+
+.registerbutton {
+    border-radius: 20px;
+    width: 150px;
+    height: 50px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    background-color: #1F496B;
+    border: 1px solid #00000033;
+    margin-left: 10px;
+}
+
+.registerbutton:hover {
+    border-radius: 20px;
+    width: 150px;
+    height: 50px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    background-color: #061c2e;
+    border: 1px solid #00000033;
+    margin-left: 10px;
+}
+
+.container2 {
+    position: relative;
+    /* หรือ absolute ถ้าต้องการวางตำแหน่งคงที่ */
+    z-index: 2;
+    /* ค่า z-index สูงกว่า container เพื่อให้ทับได้ */
     margin-top: -10%;
     width: 100%;
-    height: 100%;
+    height: 1000px;
     background-color: white;
     border-radius: 10px;
 }
 
-.with-lines2{
+.with-lines2 {
     font-size: 40px;
-    padding-top: 200px;
+    padding-top: 100px;
     font-family: Inter;
     font-style: italic;
     color: white;
@@ -136,5 +197,168 @@ img {
     top: 8px;
     right: 16px;
     font-size: 18px;
-  }
+}
 
+.container3 {
+    z-index: 1;
+    position: relative;
+    margin-top: 100px;
+}
+
+.footer {
+    position: relative;
+    z-index: -1;
+    margin-top: -5%;
+    width: 100%;
+    height: 150px;
+    background-color: #1F496B;
+}
+
+.center-footer {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+
+.footer-text {
+    padding-top: 5px;
+    color: white;
+}
+
+.font-text {
+    font-family: Inter;
+    padding-right: 5px;
+}
+
+.skyimage {
+    height: 40px;
+    width: 40px;
+    padding-top: 20px;
+}
+
+.maincontent {
+    display: flex;
+}
+
+.font-text-detail {
+    margin-top: -20px;
+    color: #A3A0A0;
+}
+
+.between1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.card {
+    
+    border-radius: 10px;
+    width: 250px;
+    height: 350px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    margin: 10px;
+}
+
+.location-badge {
+    background-color: #00A1FF;
+    color: white;
+    padding: 5px 10px;
+    position: absolute;
+    border-radius: 9px  0px  10px  0px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.property-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.rating img {
+    width: 20px;
+    margin-right: 5px;
+}
+
+.review-count {
+    font-size: 12px;
+    color: gray;
+}
+
+.score {
+    font-size: 14px;
+    color: #00A1FF;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.provicebutton {
+    padding-left: 20px;
+    padding-bottom: 20px;
+}
+
+/* Default style for buttons */
+.bk-button, .ch-button {
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    margin-right: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+    border: 1px solid #00000033;
+    background-color: #85C1F040;
+    color:  #1F496B;
+    
+    transition: background-color 0.3s;
+  }
+  
+  .bk-button:hover, .ch-button:hover {
+    background-color: #1F496B;
+    color: white;
+  }
+  
+  /* Active style for the selected city */
+  .active {
+    background-color: #1F496B;
+    color: white;
+    border: 1px solid #ffffff33;
+  }
+  

@@ -16,4 +16,9 @@ export class Home1Service {
   getAllDormitories(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
+  getProvinces(): Observable<any> {
+    return this.http.get<any>(this.apiUrl+'/api/provinces');
+  }
+
+
 }
