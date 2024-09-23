@@ -7,24 +7,31 @@ import { Observable } from 'rxjs';
 })
 export class SubmitdocumentsService {
 
-  private baseUrl = 'http://localhost:8080/documents/upload';
+  private baseUrl = 'http://localhost:8080';
 
   constructor(private http: HttpClient) { }
 
-  uploadDocument(
-    personId: number,
-    recipientName: string,
-    documentTitle: string,
-    typefile: string,
-    file: File
-  ): Observable<any> {
+  uploadMultiplePdfs(files: File[]): Observable<any> {
     const formData: FormData = new FormData();
-    formData.append('personId', personId.toString());
-    formData.append('recipientName', recipientName);
-    formData.append('documentTitle', documentTitle);
-    formData.append('typefile', typefile);
-    formData.append('file', file);
+    
+    files.forEach(file => {
+      formData.append('pdfs', file);  // คีย์ 'files' ตรงกับที่ Spring Boot คาดหวัง
+    });
 
-    return this.http.post(this.baseUrl, formData);
+    // เรียก API ที่ URL สำหรับอัปโหลด PDF หลายไฟล์
+    return this.http.post(this.baseUrl + '/dormitories/upload-pdfs', formData);
+  }
+
+
+  updateUrls(id: number, contractUrl: string, receiptUrl: string, folioUrl: string, status: string): Observable<any> {
+    const urlUpdateRequest = {
+      contractUrl: contractUrl,
+      receiptUrl: receiptUrl,
+      folioUrl: folioUrl,
+      status : status
+    };
+
+    // เรียก API เพื่ออัปเดต contractUrl, receiptUrl, folioUrl
+    return this.http.put(`${this.baseUrl}/dormitories/${id}/update-urls`, urlUpdateRequest);
   }
 }

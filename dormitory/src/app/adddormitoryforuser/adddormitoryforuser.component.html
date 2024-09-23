@@ -14,10 +14,9 @@
             <button class="dropbtn"
                 style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
             <div class="dropdown-content">
-                <a href="/setting"><img src="assets/img/navdow/settingimage.png" alt="Settings Icon" style="width: 20px; height: auto;">
+                <a href="/setting"><img src="assets/img/navdow/settingimage.png" alt="Settings Icon"
+                        style="width: 20px; height: auto;">
                     ตั้งค่า</a>
-                <a href="/submitdocuments"><img src="assets/img/navdow/sendimage.png" alt="Send Document Icon"
-                        style="width: 20px; height: auto;"> ส่งเอกสาร</a>
                 <a href="/documenttracking"><img src="assets/img/navdow/followimage.png" alt="Track Document Icon"
                         style="width: 20px; height: auto;">ติดตามเอกสาร</a>
                 <a href="#" (click)="logout()"><img src="assets/img/navdow/logoutimage.png" alt="Logout Icon"
@@ -27,35 +26,36 @@
     </div>
 </nav>
 <div class="upload-imge">
-    <div class="bk-imge" onclick="document.getElementById('file-input1').click()" style="cursor: pointer;">
-        <img [src]="images[0] || iconimg" alt="profile1" class="profile">
-
-        <input type="file" id="file-input1" class="file-input" style="display: none;"
-            (change)="onFileSelected($event, 0)" accept="image/*" />
-    </div>
-    <div class="bk-imge" onclick="document.getElementById('file-input2').click()" style="cursor: pointer;">
-        <img [src]="images[1] || iconimg" alt="profile2" class="profile">
-        <input type="file" id="file-input2" class="file-input" style="display: none;"
-            (change)="onFileSelected($event, 1)" accept="image/*" />
-    </div>
-    <div class="bk-imge" onclick="document.getElementById('file-input3').click()" style="cursor: pointer;">
-        <img [src]="images[2] || iconimg" alt="profile3" class="profile">
-        <input type="file" id="file-input3" class="file-input" style="display: none;"
-            (change)="onFileSelected($event, 2)" accept="image/*" />
-    </div>
-    <div class="bk-imge" onclick="document.getElementById('file-input4').click()" style="cursor: pointer;">
-        <img [src]="images[3] || iconimg" alt="profile4" class="profile">
-        <input type="file" id="file-input4" class="file-input" style="display: none;"
-            (change)="onFileSelected($event, 3)" accept="image/*" />
+    <div class="fix-imge">
+        <div class="bk-imge" onclick="document.getElementById('file-input1').click()" style="cursor: pointer;">
+            <img [src]="images[0] || iconimg" alt="profile1" class="image-dorm">
+            <input type="file" id="file-input1" class="file-input" style="display: none;"
+                (change)="onFileSelected($event, 0)" accept="image/*" />
+        </div>
+        <div class="bk-imge" onclick="document.getElementById('file-input2').click()" style="cursor: pointer;">
+            <img [src]="images[1] || iconimg" alt="profile2" class="image-dorm">
+            <input type="file" id="file-input2" class="file-input" style="display: none;"
+                (change)="onFileSelected($event, 1)" accept="image/*" />
+        </div>
+        <div class="bk-imge" onclick="document.getElementById('file-input3').click()" style="cursor: pointer;">
+            <img [src]="images[2] || iconimg" alt="profile3" class="image-dorm">
+            <input type="file" id="file-input3" class="file-input" style="display: none;"
+                (change)="onFileSelected($event, 2)" accept="image/*" />
+        </div>
+        <div class="bk-imge" onclick="document.getElementById('file-input4').click()" style="cursor: pointer;">
+            <img [src]="images[3] || iconimg" alt="profile4" class="image-dorm">
+            <input type="file" id="file-input4" class="file-input" style="display: none;"
+                (change)="onFileSelected($event, 3)" accept="image/*" />
+        </div>
     </div>
 </div>
+
 <form [formGroup]="dormitoryForm" (ngSubmit)="saveDormitory()">
     <div class="label-input">
         <div class="set-icon">
             <img src="assets/img/logoimage.png" alt="room-info" class="room-info">
             <label for="room-info"><strong>ชื่อหอพัก</strong></label><br>
-            <textarea id="room-info" rows="4" cols="50" placeholder="" class="room-info"
-                formControlName="name"></textarea>
+            <textarea id="room-info" rows="4" cols="50" placeholder="" class="room-info" formControlName="name"></textarea>
         </div>
         <div class="set-icon">
             <img src="assets/img/logoimage.png" alt="subdistrict-info" class="subdistrict-info">
@@ -93,7 +93,7 @@
             <textarea id="contact-info" rows="4" cols="50" placeholder="" formControlName="contact"></textarea>
         </div>
         <div class="footer-btn">
-            <button type="button" class="btn-primary" (click)="gotosubmitdocuments()">เพิ่มเอกสาร</button>
+            
             <div>
                 <button type="submit" class="btn-secondary">บันทึก</button>
                 <button type="button" class="btn-warning" (click)="gotodormitory()">จองหอพัก</button>

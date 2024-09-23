@@ -37,7 +37,8 @@ export class Home1Component implements OnInit {
   userInfo: any = null;
   selectedCity: string = '';
   district: string = '';
-  selectedProvince: string = '';
+  selectedProvince: string = 'all';
+  isDropdownOpen: boolean = false;
 
   
 
@@ -91,7 +92,6 @@ export class Home1Component implements OnInit {
       (data: any[]) => {
         this.dormitoriesBKK = null
         this.dormitoriesBKK = data.filter(dorm => dorm.province === 'กรุงเทพฯ').slice(0, 5);
-       
       },
       (error) => {
         console.error('Error fetching dormitories', error);
@@ -102,8 +102,11 @@ export class Home1Component implements OnInit {
   
   this.homeservice.getAllDormitories().subscribe(
     (data: any[]) => {
-      this.dormitories = data.filter(dorm => dorm.province != 'กรุงเทพฯ' && dorm.province != 'เชียงใหม่' && dorm.province == this.selectedProvince ).slice(0, 5);
-      
+      if (this.selectedProvince === 'all') {
+        this.dormitories = data.filter(dorm => dorm.province != 'กรุงเทพฯ' && dorm.province != 'เชียงใหม่');
+      }else{
+        this.dormitories = data.filter(dorm => dorm.province != 'กรุงเทพฯ' && dorm.province != 'เชียงใหม่' && dorm.province == this.selectedProvince ).slice(0, 5);
+      }
     },
     (error) => {
       console.error('Error fetching dormitories', error);
@@ -154,12 +157,15 @@ export class Home1Component implements OnInit {
   //   );
   // }
   
-
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+  }
   checkToken() {
     const token = localStorage.getItem('userToken'); // Adjust the key name if needed
     if (token) {
       this.isLoggedIn = true;
       this.userInfo = this.parseJwt(token);
+      console.log(this.userInfo);
     }
   }
 
@@ -186,12 +192,24 @@ export class Home1Component implements OnInit {
   getProvinces() {
     this.homeservice.getProvinces().subscribe(
       (data: any[]) => {
-        this.provinces = data;
+        this.provinces = data.filter(province => province != 'กรุงเทพฯ' && province != 'เชียงใหม่');
       },
       (error) => {
         console.error('Error fetching provinces', error);
       }
     );
+  }
+
+  gotoSetting() {
+    this.rout.navigate(['/setting']);
+  }
+
+  gotosubmitdocuments() {
+    this.rout.navigate(['/submitdocuments']);
+  }
+
+  gotodocumenttracking() {
+    this.rout.navigate(['/documenttracking']);
   }
 
   

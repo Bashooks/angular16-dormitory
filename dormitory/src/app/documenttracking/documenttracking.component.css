@@ -295,6 +295,18 @@
     background-color: #2f7cbf;
   }
 
+  .upload-btn-small2 {
+    background-color: #7fc1fa;
+    color: white;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 10px;
+  }
+  
+ 
+
   .upload-btn-edit {
     background-color:  #F07D2A;
     color: white;
@@ -323,6 +335,15 @@
   
   .upload-btn-delete:hover {
     background-color: #ff0000;
+  }
+  .upload-btn-delete2 {
+    background-color:  #f16c6c;
+    color: white;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 10px;
   }
   
   .status-pass {

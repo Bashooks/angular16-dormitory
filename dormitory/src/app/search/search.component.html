@@ -1,5 +1,4 @@
 <nav class="nav">
-
     <div class="nav-name">
         <img src="assets/img/logoimage.png" alt="logo" class="logo">
         <div>
@@ -14,7 +13,7 @@
             <button class="dropbtn">V</button>
             <div class="dropdown-content">
                 <a href="/setting"><img src="assets/img/navdow/settingimage.png" alt="Settings Icon" style="width: 20px; height: auto;"> ตั้งค่า</a>
-                <a href="/submitdocuments"><img src="assets/img/navdow/sendimage.png" alt="Send Document Icon" style="width: 20px; height: auto;"> ส่งเอกสาร</a>
+                
                 <a href="/documenttracking"><img src="assets/img/navdow/followimage.png" alt="Track Document Icon" style="width: 20px; height: auto;">ติดตามเอกสาร</a>
                 <a href="#" (click)="logout()"><img src="assets/img/navdow/logoutimage.png" alt="Logout Icon" style="width: 20px; height: auto;"> ออกจากระบบ</a>
             </div>
@@ -29,27 +28,17 @@
 
 <div class="container">
     <div class="search-bar">
-        <label for="location">ชื่อเมือง สถานที่ หรือหอพัก</label><br>
+        <label for="location">เลือกจังหวัด</label><br>
         <div class="input-container">
             <img src="assets/img/locationimage.png" alt="Location Icon" class="input-icon">
-            <input [(ngModel)]="searchLocation" class="location" style="padding-left: 50px;" type="text" placeholder="ชื่อเมือง สถานที่ หรือหอพัก">
+            <select id="district" class="dropdows" [(ngModel)]="selectedProvince"
+            (change)="filterDormitoriesByProvince()">
+            <option value="all">เลือกจังหวัด</option>
+            <option *ngFor="let province of provinces" [value]="province">
+                {{ province }}
+            </option>
+        </select>
         </div>
     </div><br>
-    <div class="line">
-        <div class="search-bar1">
-            <label for="dateopen">วันที่เข้าพัก</label><br>
-            <div class="input-container">
-                <img src="assets/img/caranderimage.png" alt="Date Icon" class="input-icon">
-                <input  class="dateopen" type="date">
-            </div>
-        </div>
-        <div class="search-bar2">
-            <label for="preple">ผู้เข้าพักและห้อง</label><br>
-            <div class="input-container">
-                <img src="assets/img/customerimage.png" alt="People Icon" class="input-icon">
-                <input class="preple" type="text" placeholder="ผู้เข้าพักและห้อง">
-            </div>
-        </div>
-    </div>
-    <button class="search" (click)="search()" >ค้นหาหอพัก</button> 
+    <button class="search"  >ค้นหาหอพัก</button> 
 </div>

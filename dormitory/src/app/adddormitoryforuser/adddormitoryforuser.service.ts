@@ -23,6 +23,19 @@ export class AdddormitoryforuserService {
   createDormitory(dormitory: any): Observable<any> {
     return this.http.post(this.apiUrl+'/dormitories', dormitory);
   }
+  
+  uploadMultiplePdfs(files: File[]): Observable<any> {
+    const formData: FormData = new FormData();
+    
+    files.forEach(file => {
+      formData.append('pdfs', file);  // คีย์ 'files' ตรงกับที่ Spring Boot คาดหวัง
+    });
+
+    // เรียก API ที่ URL สำหรับอัปโหลด PDF หลายไฟล์
+    return this.http.post(this.apiUrl + '/dormitories/upload-pdfs', formData);
+  }
+  
+
 
   
 }

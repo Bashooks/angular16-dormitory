@@ -122,14 +122,12 @@
 .search-bar {
 
     align-items: center;
-    /* Align items vertically in the center */
     gap: 10px;
-    /* Add spacing between input fields and button */
 }
 
 .search-bar input[type="text"],
 .search-bar input[type="date"] {
-    width: 50%;
+    width: 80%;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
@@ -246,14 +244,13 @@
 .input-container {
     position: relative;
     display: flex;
+   
     align-items: center;
 }
 
 /* Style for the input fields */
-input.location,
-input.dateopen,
-input.preple {
-    width: 400px;
+input.location {
+    width: 500px;
     padding: 10px 10px 10px 50px;
     /* เพิ่ม padding ด้านซ้ายสำหรับไอคอน */
     border-radius: 5px;
@@ -270,4 +267,30 @@ input.preple {
     /* ความกว้างของไอคอน */
     height: 20px;
     /* ความสูงของไอคอน */
+}
+
+.dropdows {
+    width: 1000%;
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 40px;
+    
+ 
+}
+
+.label-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: auto;
+    pointer-events: none;
+    /* Prevent icon from blocking dropdown interaction */
+}
+
+.select-label {
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
 }

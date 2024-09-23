@@ -15,8 +15,7 @@
                 <div class="dropdown-content">
                     <a href="/setting"><img src="assets/img/navdow/settingimage.png" class="dropdown1" alt="Settings Icon" style="width: 20px; height: auto;">
                         ตั้งค่า</a>
-                    <a href="/submitdocuments"><img src="assets/img/navdow/sendimage.png" alt="Send Document Icon"
-                            style="width: 20px; height: auto;"> ส่งเอกสาร</a>
+                   
                     <a href="/documenttracking"><img src="assets/img/navdow/followimage.png" alt="Track Document Icon"
                             style="width: 20px; height: auto;">ติดตามเอกสาร</a>
                     <a href="#" (click)="logout()"><img src="assets/img/navdow/logoutimage.png" alt="Logout Icon"
@@ -30,12 +29,12 @@
         <aside class="sidebar">
 
             <div class="user-info">
-                <div class="user-icon"></div>
-                <div class="user-name" >User</div>
+                <img src="assets/img/profileimage.png" alt="profile" class="profile">
+                <div class="user-name" >{{userInfo.userType}}</div>
             </div>
             <ul class="menu">
                 <li><a href="/home">หน้าหลัก</a></li>
-                <li><a href="/submitdocuments">ส่งเอกสาร</a></li>
+                
                 <li><a href="/documenttracking">ติดตามเอกสาร</a></li>
                 <li><a href="#">ศูนย์ช่วยเหลือ</a></li>
                 <li><a href="#">ติดต่อเรา</a></li>
@@ -47,7 +46,7 @@
         <main class="content">
             <div class="table-header">
                 <h2 style="margin-right: 10px;">ข้อมูลเอกสาร</h2>
-                <button class="upload-btn" (click)="Gotoupload()" >+Upload</button>
+                
             </div>
             <div class="document-table">
 
@@ -66,31 +65,68 @@
                 <div class="table-wrapper">
                     <table class="data-table">
                         <thead>
-                            <tr>
+                            <tr >
                                 <th>รหัส</th>
-                                <th>ชื่อเอกสาร</th>
-                                <th>ประเภทเอกสาร</th>
+                                <th>ชื่อหอพัก</th>
+                                <th>ชื่อผู้ส่ง</th>
+                                <th>สัญญาหอพัก</th>
+                                <th>บิล</th>
+                                <th>ฟอริโอ</th>
                                 <th>วันที่อัพโหลด</th>
                                 <th>ตรวจสอบ</th>
-                                <th></th>
-                                <th *ngIf="usertype === 'admin'"></th>
-                                <th *ngIf="usertype === 'admin'"></th>
-
+                                <th *ngIf="usertype === 'user'">ส่งเอกสาร</th>
+                                <th *ngIf="usertype === 'user' ">ลบเอกสาร</th>
+                                <th *ngIf="usertype === 'admin'">แก้ไขสถานะ</th>
+                                <th *ngIf="usertype === 'admin'">ลบคำขอตรวจสอบ</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let document of documents">
                                 <td>{{ document.id }}</td>
-                                <td>{{ document.documentTitle }}</td>
-                                <td (click)="downloadFile(document.id)"
+                                <td>{{ document.name }}</td>
+                                <td>{{ document.addedBy.firstName }}  {{ document.addedBy.lastName }}</td>
+                                <td *ngIf="document.contractUrl" 
                                     style="cursor: pointer; color: blue; text-decoration: underline;">
-                                    {{document.typefile}}
+                                    <a href="{{document.contractUrl}}" target="_blank" rel="noopener noreferrer">สัญญาหอพัก</a>
+                                </td>
+                                <td *ngIf="!document.contractUrl" 
+                                    style=" color: rgb(255, 0, 0); ">
+                                    null
+                                </td>
+                                <td *ngIf="document.receiptUrl" 
+                                    style="cursor: pointer; color: blue; text-decoration: underline;">
+                                    <a href="{{document.receiptUrl}}" target="_blank" rel="noopener noreferrer">บิล</a>
+                                </td>
+                                <td *ngIf="!document.receiptUrl" 
+                                    style=" color: rgb(255, 0, 0); ">
+                                    null
+                                </td>
+                                <td *ngIf="document.folioUrl" 
+                                    style="cursor: pointer; color: blue; text-decoration: underline;">
+                                    <a href="{{document.folioUrl}}" target="_blank" rel="noopener noreferrer">ฟอริโอ</a>
+                                </td>
+                                <td *ngIf="!document.folioUrl" 
+                                    style=" color: rgb(255, 0, 0); ">
+                                    null
                                 </td>
                                 <td>{{document.uploadDate}}</td>
                                 <td><span [class]="document.statusClass">{{document.status}}</span></td>
-                                <td>
+                                <td *ngIf="document.status === 'ไม่ผ่าน' && usertype === 'user' || !document.contractUrl || !document.receiptUrl || !document.folioUrl ">
                                     <span [class]="document.statusClass"></span>
-                                    <button class="upload-btn-small" (click)="gotosubmitdocuments()">+Upload</button>
+                                    <button class="upload-btn-small" (click)="gotosubmitdocuments(document.id)">ส่งเอกสารใหม่</button>
+                                </td>
+                                <td *ngIf="document.status === 'ไม่ผ่าน' && usertype === 'user' ">
+                                    <span [class]="document.statusClass"></span>
+                                    <button class="upload-btn-delete" (click)="delete(document.id)">ลบ</button>
+                                </td>
+                                
+                                <td *ngIf="document.status === 'ผ่าน' && usertype === 'user' || document.status === 'รอการอนุมัติ' && usertype === 'user'  &&  document.contractUrl && document.receiptUrl && document.folioUrl ">
+                                    <span [class]="document.statusClass"></span>
+                                    <button disabled class="upload-btn-small2" >ส่งเอกสารใหม่</button>
+                                </td>
+                                <td *ngIf="document.status != 'ไม่ผ่าน' && usertype === 'user' ">
+                                    <span [class]="document.statusClass"></span>
+                                    <button class="upload-btn-delete2" disabled>ลบ</button>
                                 </td>
                                 <td *ngIf="usertype === 'admin'">
                                     <span [class]="document.statusClass" ></span>

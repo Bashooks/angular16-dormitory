@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { SearchService } from './search.service';
 
 @Component({
   selector: 'app-search',
@@ -22,15 +23,20 @@ export class SearchComponent implements OnInit {
   catogory = "https://s3-alpha-sig.figma.com/img/ea6a/877d/883641e9fe1df0e19ae741345c29a518?Expires=1725235200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aKYhvjnF3vIy~0jTIR8ZN9hICM6qKO19ARc75ck~HdIXOCbkxel2yUpjhFrJmW2uN9eldUtk277fAfXe8Bs1QJQ56NTDRJNW-J1EjLLjlMfTeDFh1lKgRYfU3bDL3rQk2LX7AJWc8iqsxMyaFux1MozJuaic2SsfdKbdyOtEDo0whNXfvxMTaVYvLoS7zldg82zH3CFPl1DyS8HoUTYQZq7NaUqN-dZ4t~Tc4VOLGwYTC9vGiJqfElkzyyllrL3rxuR2U2-ze7rsfEJPRhS5dpCfB5tH0pCQnkoZiYoDplhm-2WWej35-r1HsOpnBQ2Lhf~2Q-Xx9s5GmNqLfwZyFw__"
   isLoggedIn: boolean = false;
   userInfo: any = null;
-  searchLocation: string = '';
+  
+  selectedProvince: string = 'all';
+  provinces: any[] = [];
 
 
-  constructor(private router:Router) {
+  constructor(private router:Router,
+              private searchService: SearchService
+  ) {
 
   }
 
   ngOnInit(): void {
     this.checkToken()
+    this.getProvinces()
   }
 
   logout() {
@@ -64,14 +70,25 @@ export class SearchComponent implements OnInit {
     return JSON.parse(jsonPayload);
   }
 
-  search() {
-    if (this.searchLocation) {
+  filterDormitoriesByProvince() {
+    if (this.selectedProvince) {
       // Navigate to the target page and pass the searchLocation as a query parameter
-      this.router.navigate(['/dormitory'], { queryParams: { location: this.searchLocation } });
+      this.router.navigate(['/dormitory'], { queryParams: { location: this.selectedProvince } });
     
     } else {
       alert('กรุณากรอกข้อมูล');
     }
+  }
+
+  getProvinces() {
+    this.searchService.getProvinces().subscribe(
+      (data: any[]) => {
+        this.provinces = data;
+      },
+      (error) => {
+        console.error('Error fetching provinces', error);
+      }
+    );
   }
 
 }

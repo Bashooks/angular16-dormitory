@@ -14,7 +14,6 @@
       <button class="dropbtn" style="background-color: rgba(255, 255, 255, 0); border: none; color: white;">V</button>
       <div class="dropdown-content">
         <a href="/setting"><img src="assets/img/navdow/settingimage.png" alt="Settings Icon" style="width: 20px; height: auto;"> ตั้งค่า</a>
-        <a href="/submitdocuments"><img src="assets/img/navdow/sendimage.png" alt="Send Document Icon" style="width: 20px; height: auto;"> ส่งเอกสาร</a>
         <a href="/documenttracking"><img src="assets/img/navdow/followimage.png" alt="Track Document Icon" style="width: 20px; height: auto;">ติดตามเอกสาร</a>
         <a href="#" (click)="logout()"><img src="assets/img/navdow/logoutimage.png" alt="Logout Icon" style="width: 20px; height: auto;"> ออกจากระบบ</a>
     </div>
@@ -26,8 +25,7 @@
   <aside class="sidebar">
     <h3 style="text-align: center;">User</h3>
     <ul class="menu">
-      <li><a href="/home">หน้าหลัก</a></li>
-      <li><a href="/submitdocuments">ส่งเอกสาร</a></li>
+      <li><a href="/home">หน้าหลัก</a></li>   
       <li><a href="/documenttracking">ติดตามเอกสาร</a></li>
       <li><a href="#">ศูนย์ช่วยเหลือ</a></li>
       <li><a href="#">ติดต่อเรา</a></li>
@@ -38,21 +36,16 @@
   <main class="content">
     <div class="document-form">
       <h2>ส่งเอกสาร</h2>
-      
       <div class="form-group">
-        <label for="recipient">ผู้รับเอกสาร</label>
-        <input type="text" id="recipient" [(ngModel)]="recipientName" placeholder="กรุณากรอกชื่อผู้รับเอกสารหากจะส่งเอกสารได้สำเร็จ">
+        <label for="file">หนังสือสัญญาเช่าหอพัก(pdf)</label>
+        <input type="file" id="file" (change)="onFileSelected($event)">
       </div>
       <div class="form-group">
-        <label for="title">ชื่อเอกสาร</label>
-        <input type="text" id="title" [(ngModel)]="documentTitle" placeholder="กรุณากรอกชื่อเอกสาร ถ้าไม่ระบุชื่อจะส่งเอกสารไม่ได้สำเร็จ (สามารถใช้ภาษาไทยได้)">
+        <label for="file">บิล(pdf)</label>
+        <input type="file" id="file" (change)="onFileSelected($event)">
       </div>
       <div class="form-group">
-        <label for="typefile">ประเภทเอกสาร</label>
-        <input type="text" id="typefile" [(ngModel)]="typefile" placeholder="กรุณากรอกประเภทเอกสาร ถ้าไม่ระบุประเภทเอกสารจะส่งเอกสารไม่ได้สำเร็จ (สามารถใช้ภาษาไทยได้)">
-      </div>
-      <div class="form-group">
-        <label for="file">เลือกไฟล์(pdf)</label>
+        <label for="file">ฟอริโอ(pdf)</label>
         <input type="file" id="file" (change)="onFileSelected($event)">
       </div>
       <div class="form-group">

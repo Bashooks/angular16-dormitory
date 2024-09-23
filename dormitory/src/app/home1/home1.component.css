@@ -36,6 +36,7 @@ img {
     height: 50px;
     border-radius: 10px;
     padding-left: 40px;
+ 
 }
 
 .label-icon {
@@ -113,6 +114,7 @@ img {
     color: rgb(255, 255, 255);
     font-size: 20px;
     border-color: #ffffff00;
+   
 }
 
 .searchbutton:hover {
@@ -194,9 +196,10 @@ img {
 
 .topright {
     position: absolute;
-    top: 8px;
+    top: 20px;
     right: 16px;
     font-size: 18px;
+
 }
 
 .container3 {
@@ -256,7 +259,13 @@ img {
 .row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
+}
+.fix-row{
+    display: flex;
+    width: 1350px;
+    flex-wrap: wrap;
+    justify-content:flex-start;
 }
 
 .card {
@@ -362,3 +371,75 @@ img {
     border: 1px solid #ffffff33;
   }
   
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-toggle {
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    
+  }
+  
+  .dropdown-menu {
+    
+    position: absolute;
+    background-color: white;
+    border-radius: 50px;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    margin-top: 5px;
+    right: 0;
+    
+  }
+  
+  .dropdown-menu button {
+    width: 100%;
+    padding: 10px;
+    text-align: left;
+    border: none;
+    background-color: #3E9AEF;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu button:hover {
+    background-color: #034583;
+  }
+  .profile-section {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .profile-image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .search{
+    display: flex;
+    align-items: center;
+  }
+  .dropdown-button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    
+  }
+
+  .dropdown-button img.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px; /* เว้นระยะระหว่างรูปไอคอนและข้อความ */
+  }
