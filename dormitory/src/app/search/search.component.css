@@ -262,11 +262,9 @@ input.location {
 .input-icon {
     position: absolute;
     left: 10px;
-    /* จัดตำแหน่งไอคอนทางด้านซ้าย */
     width: 20px;
-    /* ความกว้างของไอคอน */
     height: 20px;
-    /* ความสูงของไอคอน */
+
 }
 
 .dropdows {
@@ -274,8 +272,7 @@ input.location {
     height: 50px;
     border-radius: 10px;
     padding-left: 40px;
-    
- 
+
 }
 
 .label-icon {

@@ -17,4 +17,8 @@ export class DormitoryService {
   getAllDormitories(): Observable<any> {
     return this.http.get<any>(this.apiUrl+'/available2');
   }
+
+  getProvinces(): Observable<any> {
+    return this.http.get<any>(this.apiUrl+'/api/provinces');
+  }
 }

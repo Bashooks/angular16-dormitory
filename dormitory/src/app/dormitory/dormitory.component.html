@@ -23,11 +23,13 @@
         </div>
     </nav>
     <div class="search-bar">
-        <input class="input1" type="text" placeholder="" />
-        <input class="input2" type="text" placeholder="" />
-        <input class="input3" type="date" placeholder="" />
-        <input class="input4" type="text" placeholder="" />
-        <button>Search</button>
+        <select id="district" class="dropdows" [(ngModel)]="selectedProvince"
+        (change)="filterDormitoriesByProvince()">
+        <option value="all">เลือกจังหวัด</option>
+        <option *ngFor="let province of provinces" [value]="province">
+            {{ province }}
+        </option>
+    </select>
     </div>
     <div class="btn-add-dormitory-and-logo">
         <div class="head-menu">

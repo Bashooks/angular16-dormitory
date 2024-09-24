@@ -148,7 +148,7 @@
 .search-bar {
     display: flex;
     /* Aligns children in a row */
-    justify-content: center;
+   
     /* Centers the entire search bar horizontally */
     align-items: center;
     /* Aligns items vertically within the search bar */
@@ -378,4 +378,29 @@
 .footer p {
     margin: 0;
     font-size: 14px;
+}
+
+.dropdows {
+    width: 1000px;
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 40px;
+ 
+}
+
+.label-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: auto;
+    pointer-events: none;
+    /* Prevent icon from blocking dropdown interaction */
+}
+
+.select-label {
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
 }

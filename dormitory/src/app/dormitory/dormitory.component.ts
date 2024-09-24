@@ -20,6 +20,8 @@ export class DormitoryComponent implements OnInit {
   location: string | null = null;
   userInfo: any = null;
   isLoggedIn: boolean = false;
+  provinces: any[] = [];
+  selectedProvince: string = 'all';
 
   constructor(private router: Router,
     private dormitoryservice: DormitoryService,
@@ -29,12 +31,41 @@ export class DormitoryComponent implements OnInit {
   }
 
 
+
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.location = params['location'] || null; // Get location from query params
       this.getDormitories()
+      this.getProvinces()
     });
     this.checkToken()
+  }
+
+  filterDormitoriesByProvince() {
+    this.dormitoryservice.getAllDormitories().subscribe(
+      (data: any[]) => {
+        if (this.selectedProvince === 'all') {
+          this.dormitories = data
+        } else {
+          this.dormitories = data.filter(dorm => dorm.province == this.selectedProvince)
+        }
+      },
+      (error) => {
+        console.error('Error fetching dormitories', error);
+      }
+    );
+  }
+
+
+  getProvinces() {
+    this.dormitoryservice.getProvinces().subscribe(
+      (data: any[]) => {
+        this.provinces = data.filter(province => province != 'กรุงเทพฯ' && province != 'เชียงใหม่');
+      },
+      (error) => {
+        console.error('Error fetching provinces', error);
+      }
+    );
   }
 
   getDormitories(): void {
@@ -47,7 +78,7 @@ export class DormitoryComponent implements OnInit {
     });
   }
 
-  logout(){
+  logout() {
     localStorage.clear();
     window.location.reload()
   }
@@ -58,7 +89,7 @@ export class DormitoryComponent implements OnInit {
   }
 
 
-  Gotosubmitdocuments(){
+  Gotosubmitdocuments() {
     this.router.navigate(['/submitdocuments'])
   }
 
@@ -75,9 +106,9 @@ export class DormitoryComponent implements OnInit {
       this.userInfo = this.parseJwt(token);
       this.isLoggedIn = true;
 
-    }else{
+    } else {
 
-      
+
     }
   }
 

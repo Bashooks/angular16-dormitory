@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DocumenttrackingService } from './documenttracking.service';
 import Swal from 'sweetalert2';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-documenttracking',
@@ -14,13 +15,34 @@ export class DocumenttrackingComponent implements OnInit {
   personId: number = 0;
   isLoggedIn: boolean = false;
   documents: any = [];
+  documentsfilter: any = [];
   usertype: string = ''
-  constructor(private rout: Router, private documenttrackingService: DocumenttrackingService) { }
+  Search:string = ''
+  searchText: string = '';
+  
+
+  constructor(private rout: Router, private documenttrackingService: DocumenttrackingService ) {}
 
   ngOnInit(): void {
     this.checkToken()
+    
   }
 
+
+
+  onSearchChange(): void {
+    if (this.searchText === '') {
+      console.log('No search text');
+      
+      this.documentsfilter = this.documents;
+    } else {
+      // ถ้ามีข้อความค้นหา ทำการกรองเอกสาร
+      this.documentsfilter = this.documents.filter((document: any) =>
+        document.name.toLowerCase().includes(this.searchText.toLowerCase())
+      );
+    }
+  }
+  
 
   Gotoupload(){
     this.rout.navigate(['/submitdocuments'])
@@ -39,6 +61,7 @@ export class DocumenttrackingComponent implements OnInit {
         this.documenttrackingService.getDocumentAll().subscribe(
           response => {
             this.documents = response.sort((a: { id: number; }, b: { id: number; }) => a.id - b.id);
+            this.documentsfilter = this.documents;
           }, error => {
             console.error('Error retrieving document', error);
           }
@@ -69,6 +92,7 @@ export class DocumenttrackingComponent implements OnInit {
       this.documenttrackingService.getDocumentById(this.personId).subscribe(
         response => {
           this.documents = response.sort((a: { id: number; }, b: { id: number; }) => a.id - b.id);
+          this.documentsfilter = this.documents;
           console.log('Document retrieved successfully', this.documents);
         },
         error => {
