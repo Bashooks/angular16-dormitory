@@ -38,7 +38,7 @@ export class AdddormitoryforuserComponent implements OnInit {
       subDistrict: [''],
       district: [''],
       province: [''],
-      price: [''],
+      price : [],
       description: [''],
       furniture: [''],
       contact: ['']
@@ -72,6 +72,7 @@ export class AdddormitoryforuserComponent implements OnInit {
       if (response) {
         const updatedDormitoryData = {
           ...this.dormitoryForm.value,
+          price: Number(this.dormitoryForm.value.price),
           imageUrls: response.fileUrls,
           status : "รอการอนุมัติ",
           addedBy:{
