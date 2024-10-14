@@ -113,7 +113,7 @@
                                
                                 <td><span [class]="document.statusClass">{{document.status}}</span></td>
                                 <td
-                                    *ngIf="document.status === 'ไม่ผ่าน' && usertype === 'user' || usertype === 'user' && !document.contractUrl && !document.receiptUrl &&!document.folioUrl ">
+                                    *ngIf="document.status === 'ไม่ผ่าน' && usertype === 'user' || usertype === 'user' && !document.contractUrl && !document.receiptUrl &&!document.folioUrl && document.status === 'ไม่ผ่าน' || usertype === 'user' && !document.contractUrl && !document.receiptUrl &&!document.folioUrl && document.status === 'รอการอนุมัติ'">
                                     <span [class]="document.statusClass"></span>
                                     <button class="upload-btn-small"
                                         (click)="gotosubmitdocuments(document.id)">ส่งเอกสารใหม่</button>
