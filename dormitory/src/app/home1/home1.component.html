@@ -16,10 +16,10 @@
                 ค้นหาหอพัก
             </button>
             <div *ngIf="isLoggedIn; else notLoggedIn" class="dropdown">
-                <div class="profile-section" (click)="toggleDropdown()" >
+                <div class="profile-section" (click)="toggleDropdown()">
                     <img src="../assets/img/profileimage.png" alt="Profile Image" class="profile-image">
                     <span class="full-name">
-                        {{userInfo.firstName }} {{userInfo.lastName }} V 
+                        {{userInfo.firstName }} {{userInfo.lastName }} V
                     </span><!-- ชื่อนามสกุล -->
                 </div>
                 <div *ngIf="isDropdownOpen" class="dropdown-menu">
@@ -33,10 +33,10 @@
                         <img src="assets/img/navdow/logoutimage.png" alt="ออกจากระบบ" class="icon"> ออกจากระบบ
                     </button>
                 </div>
-                
+
             </div>
         </div>
-        
+
 
         <!-- ถ้าไม่มีการล็อกอินให้แสดงปุ่มเข้าสู่ระบบและสมัครสมาชิก -->
         <ng-template #notLoggedIn>
@@ -53,8 +53,13 @@
         <h1 class="with-lines">เราคัดสรรหอพักที่ดีเพื่อความสุขสบายของคุณ</h1>
         <label for="district" class="select-label">
             <img src="assets/img/logoimage.png" alt="Icon" class="label-icon">
+            <input class="input-fielter" type="text" placeholder="ค้นหาชื่อหอพัก/ชื่อบริษัท" [(ngModel)]="searchText"
+                (input)="filterAndSearchDormitories()">
+        </label>
+        <label for="district" class="select-label">
+            <img src="assets/img/logoimage.png" alt="Icon" class="label-icon">
             <select id="district" class="dropdows" [(ngModel)]="selectedProvince"
-                (change)="filterDormitoriesByProvince()">
+                (change)="filterAndSearchDormitories()">
                 <option value="all">เลือกจังหวัด</option>
                 <option *ngFor="let province of provinces" [value]="province">
                     {{ province }}
@@ -84,42 +89,9 @@
             เชียงใหม่
         </button>
     </div>
-
-    <!-- Row 1 -->
     <div class="row">
         <div class="fix-row">
             <div *ngFor="let dorm of dormitoriesBKK" class="card">
-                <div class="image-container">
-                    <div class="location-badge">{{ dorm.province }}</div>
-                    <img [src]="dorm.imageUrls[0]" alt="Room Image">
-                </div>
-                <div class="card-content">
-                    <div class="property-name">{{ dorm.name }}</div>
-                    <div class="rating">
-                        <img src="../assets/img/logoimage.png" alt="Building Icon">
-                        <span class="review-count">⭐⭐⭐⭐⭐(5)</span>
-                    </div>
-                    <div class="card-footer">
-                        <div class="score">9/10</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="between1">
-        <div>
-            <div class="maincontent">
-                <h1 class="font-text">หอพักยอดนิยม!</h1>
-                <img src="assets/img/skyimage.png" class="skyimage">
-            </div>
-            <h3 class="font-text-detail">หอพักยอดนิยมที่มีคนเข้าใช้และการันตีว่าสบายที่สุด</h3>
-        </div>
-        <h1 (click)="Gotodormitory()" class="icon-gotodetail"> > </h1>
-    </div>
-    <div class="row">
-        <div class="fix-row">
-            <div *ngFor="let dorm of dormitories" class="card">
                 <div class="image-container">
                     <div class="location-badge">{{ dorm.companyname }}</div>
                     <img [src]="dorm.imageUrls[0]" alt="Room Image">
@@ -135,9 +107,37 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
+    </div>
+    <div class="between1">
+        <div>
+            <div class="maincontent">
+                <h1 class="font-text">หอพักยอดนิยม!</h1>
+                <img src="assets/img/skyimage.png" class="skyimage">
+            </div>
+            <h3 class="font-text-detail">หอพักยอดนิยมที่มีคนเข้าใช้และการันตีว่าสบายที่สุด</h3>
+        </div>
+        <h1 (click)="Gotodormitory()" class="icon-gotodetail"> > </h1>
+    </div>
+    <div class="row">
+        <div class="fix-row">
+            <div *ngFor="let dorm of filteredDormitories" class="card">
+                <div class="image-container">
+                    <div class="location-badge">{{ dorm.companyname }}</div>
+                    <img [src]="dorm.imageUrls[0]" alt="Room Image">
+                </div>
+                <div class="card-content">
+                    <div class="property-name">{{ dorm.name }}</div>
+                    <div class="rating">
+                        <img src="../assets/img/logoimage.png" alt="Building Icon">
+                        <span class="review-count">⭐⭐⭐⭐⭐(5)</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="score">9/10</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

@@ -78,7 +78,7 @@ export class AdddormitoryforuserComponent implements OnInit {
           ...this.dormitoryForm.value,
           price: Number(this.dormitoryForm.value.price),
           imageUrls: response.fileUrls,
-          status : "รอการอนุมัติ",
+          status : "รอส่งเอกสาร",
           addedBy:{
             id: this.userInfo.id
           }

@@ -39,6 +39,7 @@ export class Home1Component implements OnInit {
   district: string = '';
   selectedProvince: string = 'all';
   isDropdownOpen: boolean = false;
+  searchText: string = '';
 
 
 
@@ -50,9 +51,10 @@ export class Home1Component implements OnInit {
 
   }
   ngOnInit(): void {
+    this.checkToken()
     this.getDormitories();
     this.getAllDormitories();
-    this.checkToken()
+
 
   }
 
@@ -98,20 +100,26 @@ export class Home1Component implements OnInit {
       }
     );
   }
-  filterDormitoriesByProvince() {
-    this.homeservice.getAllDormitories().subscribe(
-      (data: any[]) => {
-        if (this.selectedProvince === 'all') {
-          this.dormitories = data.filter(dorm => dorm.province != 'กรุงเทพฯ' && dorm.province != 'เชียงใหม่');
-        } else {
-          this.dormitories = data.filter(dorm => dorm.province != 'กรุงเทพฯ' && dorm.province != 'เชียงใหม่' && dorm.province == this.selectedProvince).slice(0, 5);
-        }
-      },
-      (error) => {
-        console.error('Error fetching dormitories', error);
-      }
-    );
-  }
+  filterAndSearchDormitories() {
+    console.log("test");
+
+    const searchTextLower = this.searchText ? this.searchText.toLowerCase() : '';
+
+    // กรองตาม selectedProvince และ searchText
+    this.filteredDormitories = this.dormitories.filter((dorm: any) => {
+        const dormName = dorm.name ? dorm.name.toLowerCase() : '';
+        const companyName = dorm.companyname ? dorm.companyname.toLowerCase() : '';
+        const provinceMatch = this.selectedProvince === 'all' || dorm.province === this.selectedProvince;
+        const searchMatch = dormName.includes(searchTextLower) || companyName.includes(searchTextLower);
+
+        // กรองทั้งตามจังหวัดและข้อความค้นหา
+        return provinceMatch && (!this.searchText || searchMatch);
+    });
+}
+
+
+
+
 
 
   getDormitoriesch() {
@@ -131,28 +139,16 @@ export class Home1Component implements OnInit {
     this.homeservice.getAllDormitories().subscribe(
       (data: any[]) => {
         this.dormitories = data.filter(dorm => dorm.province != 'กรุงเทพฯ' && dorm.province != 'เชียงใหม่').slice(0, 5);
-        this.getProvinces();
-        // ควรจะเป็นเรทติ้งมากที่สุดค่อยมาแก้
+        console.log(this.dormitories);
 
+        this.getProvinces();
+        this.filterAndSearchDormitories();
       },
       (error) => {
         console.error('Error fetching dormitories', error);
       }
     );
   }
-
-  // logDistrict() {
-  //   this.homeservice.getAllDormitories().subscribe(
-  //     (data: any[]) => {
-  //       this.dormitories = null
-  //       this.dormitories = data.filter(dorm => dorm.province === this.district).slice(0, 4);
-
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching dormitories', error);
-  //     }
-  //   );
-  // }
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;

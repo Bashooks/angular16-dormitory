@@ -32,11 +32,16 @@ img {
 }
 
 .dropdows {
-    width: 1000px;
+    width: 500px;
     height: 50px;
-    border-radius: 10px;
+    border-radius: 0px 10px 10px 0px;
     padding-left: 40px;
- 
+}
+.input-fielter {
+    width: 395px;
+    height: 45px;
+    border-radius: 10px 0px 0px 10px;
+    padding-left: 40px;
 }
 
 .label-icon {

@@ -118,6 +118,13 @@
                                     <button class="upload-btn-small"
                                         (click)="gotosubmitdocuments(document.id)">ส่งเอกสารใหม่</button>
                                 </td>
+
+                                <td
+                                    *ngIf="document.status === 'รอส่งเอกสาร' && usertype === 'user' && usertype === 'user' && !document.contractUrl && !document.receiptUrl &&!document.folioUrl ">
+                                    <span [class]="document.statusClass"></span>
+                                    <button class="upload-btn-small"
+                                        (click)="gotosubmitdocuments(document.id)">ส่งเอกสาร</button>
+                                </td>
                                 <td *ngIf="document.status === 'ไม่ผ่าน' && usertype === 'user' ">
                                     <span [class]="document.statusClass"></span>
                                     <button class="upload-btn-delete" (click)="delete(document.id)">ลบ</button>
